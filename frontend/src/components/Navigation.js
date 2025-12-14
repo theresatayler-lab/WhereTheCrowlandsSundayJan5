@@ -22,12 +22,9 @@ export const Navigation = ({ user, onLogout }) => {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center space-x-3" data-testid="nav-logo">
             <img 
-              src="https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/hi8yz7q6_1.png" 
+              src="https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/nc8oadiz_1.png" 
               alt="Where The Crow Lands Logo"
               className="h-16 w-auto"
-              style={{ 
-                mixBlendMode: 'darken'
-              }}
             />
           </Link>
           
