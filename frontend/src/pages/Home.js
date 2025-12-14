@@ -115,7 +115,7 @@ export const Home = () => {
               />
               <h3 className="font-cinzel text-xl font-bold text-secondary mb-2">Deities</h3>
               <p className="font-crimson text-sm text-muted-foreground leading-relaxed">
-                Hecate, The Morrigan, Cerridwen—goddesses of the revival period
+                Archetypes and energies to work with—Hecate, Morrigan, Cerridwen
               </p>
             </GlassCard>
           </Link>
