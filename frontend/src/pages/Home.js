@@ -65,15 +65,17 @@ export const Home = () => {
               </Link>
             </div>
           </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Decorative Divider */}
-      <div className="flex justify-center py-12">
+      {/* Decorative Divider - Larger */}
+      <div className="flex justify-center py-16 -mt-12">
         <img 
           src="https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/flkqjy53_Now_can_we_create_a_full_brand_from_this_with_graphic_downloa_0fd417a5-4e03-4cd2-a771-053079e14c28_0.png"
           alt="Decorative crow"
-          className="h-20 opacity-60"
+          className="h-32 opacity-80"
+          style={{ mixBlendMode: 'multiply' }}
         />
       </div>
 
