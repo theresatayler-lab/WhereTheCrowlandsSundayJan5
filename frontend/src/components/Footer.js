@@ -14,7 +14,7 @@ export const Footer = () => {
               className="h-48 w-48 mb-6"
             />
             <p className="font-crimson text-sm text-center md:text-left text-muted-foreground leading-relaxed">
-              Your guide to authentic occult practice rooted in documented history (1910-1945).
+              Build your own practice. No gatekeepers, no expensive services—just formulas, patterns, and your power.
             </p>
           </div>
 
