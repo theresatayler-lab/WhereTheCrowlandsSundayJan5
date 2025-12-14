@@ -29,8 +29,7 @@ export const Home = () => {
             alt="Where The Crow Lands"
             className="w-64 h-64 mb-8"
             style={{ 
-              mixBlendMode: 'multiply',
-              filter: 'contrast(1.15)'
+              mixBlendMode: 'darken'
             }}
           />
           
