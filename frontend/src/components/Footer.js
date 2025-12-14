@@ -11,7 +11,8 @@ export const Footer = () => {
             <img 
               src="https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/fmscypbs_2.png"
               alt="Where The Crow Lands Badge"
-              className="h-32 w-32 mb-4"
+              className="h-48 w-48 mb-6"
+              style={{ mixBlendMode: 'multiply' }}
             />
             <p className="font-crimson text-sm text-center md:text-left text-muted-foreground leading-relaxed">
               Your guide to authentic occult practice rooted in documented history (1910-1945).
