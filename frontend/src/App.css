@@ -3,9 +3,17 @@
 }
 
 .glow-effect {
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 20px rgba(117, 6, 9, 0.3);
 }
 
 .glow-effect:hover {
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 30px rgba(117, 6, 9, 0.5);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 20px rgba(6, 19, 60, 0.3);
+}
+
+.glow-secondary:hover {
+  box-shadow: 0 0 30px rgba(6, 19, 60, 0.5);
 }

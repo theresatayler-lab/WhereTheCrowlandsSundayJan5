@@ -9,8 +9,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #120f14;
-    color: #f3f2e9;
+    background-color: #1C1C1C;
+    color: #D8CBB3;
 }
 
 code {
@@ -19,25 +19,25 @@ code {
 
 @layer base {
     :root {
-        --background: #120f14;
-        --foreground: #f3f2e9;
-        --card: #1c1821;
-        --card-foreground: #f3f2e9;
-        --popover: #1c1821;
-        --popover-foreground: #f3f2e9;
-        --primary: #d4af37;
-        --primary-foreground: #120f14;
-        --secondary: #2d2436;
-        --secondary-foreground: #d4af37;
-        --muted: #2a2430;
-        --muted-foreground: #9ca3af;
-        --accent: #c08e9b;
-        --accent-foreground: #120f14;
-        --destructive: #7f1d1d;
-        --destructive-foreground: #f3f2e9;
-        --border: #383042;
-        --input: #2a2430;
-        --ring: #d4af37;
+        --background: #1C1C1C;
+        --foreground: #D8CBB3;
+        --card: #2a2a2a;
+        --card-foreground: #D8CBB3;
+        --popover: #2a2a2a;
+        --popover-foreground: #D8CBB3;
+        --primary: #750609;
+        --primary-foreground: #D8CBB3;
+        --secondary: #06133c;
+        --secondary-foreground: #D8CBB3;
+        --muted: #3a3a3a;
+        --muted-foreground: #A8A8A8;
+        --accent: #4B5A3E;
+        --accent-foreground: #D8CBB3;
+        --destructive: #750609;
+        --destructive-foreground: #D8CBB3;
+        --border: #4a4a4a;
+        --input: #2a2a2a;
+        --ring: #750609;
         --radius: 0.5rem;
     }
 }
@@ -48,7 +48,7 @@ code {
     }
     body {
         @apply bg-background text-foreground;
-        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMTIwZjE0Ii8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz4KPC9zdmc+');
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjMUMxQzFDIi8+CjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz4KPC9zdmc+');
     }
 }
 
@@ -58,16 +58,16 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-    background: #1c1821;
+    background: #2a2a2a;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #d4af37;
+    background: #750609;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #f3e5ab;
+    background: #8b0709;
 }
 
 @layer base {
