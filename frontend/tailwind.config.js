@@ -7,10 +7,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#1C1C1C',
+        background: '#2a2520',
         foreground: '#D8CBB3',
         card: {
-          DEFAULT: '#2a2a2a',
+          DEFAULT: '#3a342e',
           foreground: '#D8CBB3',
         },
         popover: {
