@@ -25,12 +25,9 @@ export const Home = () => {
         <div className="relative z-10 text-center max-w-5xl px-6 flex flex-col items-center">
           {/* Large Central Logo */}
           <img 
-            src="https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/fmscypbs_2.png"
+            src="https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/13011twj_2.png"
             alt="Where The Crow Lands"
             className="w-64 h-64 mb-8"
-            style={{ 
-              mixBlendMode: 'darken'
-            }}
           />
           
           <div className="max-w-3xl">
