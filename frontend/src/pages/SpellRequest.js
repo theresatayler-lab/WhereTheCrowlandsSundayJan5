@@ -187,15 +187,15 @@ Be clear about what is documented historical practice vs. modern adaptation. Kee
             <div className="flex items-start gap-4">
               <BookOpen className="w-8 h-8 text-primary flex-shrink-0" />
               <div>
-                <h4 className="font-cinzel text-lg text-secondary mb-2">About Our Approach</h4>
+                <h4 className="font-cinzel text-lg text-secondary mb-2">Magic as Science</h4>
                 <p className="font-montserrat text-sm text-foreground/80 leading-relaxed mb-3">
-                  Every spell generated here draws from documented historical practices of the 1910-1945 period.
-                  We cite specific practitioners (Gardner, Fortune, Crowley, folk traditions) and clearly distinguish
-                  between verified historical practice and modern adaptation.
+                  These formulas aren't mystical secrets—they're patterns that people like Gardner, Fortune, and Crowley 
+                  tested and documented. They work through focused intention, repetition, and symbolic frameworks. 
+                  Like any science, you don't have to believe in it. You just practice it and see what happens.
                 </p>
                 <p className="font-montserrat text-sm text-accent italic">
-                  Historical accuracy note: Many claims from this era about "ancient lineages" are disputed by scholars.
-                  We focus on what's documented and cite our sources honestly.
+                  You have the power. These are just formulas others used. Adapt them. Break them. Build your own.
+                  No gatekeepers necessary.
                 </p>
               </div>
             </div>
