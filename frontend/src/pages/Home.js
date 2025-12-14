@@ -82,7 +82,7 @@ export const Home = () => {
           <Link to="/deities" data-testid="section-deities">
             <GlassCard testId="card-deities">
               <Moon className="w-12 h-12 text-primary mb-4" />
-              <h3 className="font-cinzel text-xl font-bold text-bloomsbury-rose mb-2">Deities</h3>
+              <h3 className="font-cinzel text-xl font-bold text-secondary mb-2">Deities</h3>
               <p className="font-montserrat text-sm text-muted-foreground leading-relaxed">
                 Hecate, The Morrigan, Cerridwen—goddesses of the revival period
               </p>
