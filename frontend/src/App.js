@@ -12,6 +12,7 @@ import { Timeline } from './pages/Timeline';
 import { AIChat } from './pages/AIChat';
 import { AIImage } from './pages/AIImage';
 import { Profile } from './pages/Profile';
+import { SpellRequest } from './pages/SpellRequest';
 import './App.css';
 
 function App() {
