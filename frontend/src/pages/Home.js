@@ -102,7 +102,7 @@ export const Home = () => {
           <Link to="/sites" data-testid="section-sites">
             <GlassCard testId="card-sites">
               <MapPin className="w-12 h-12 text-primary mb-4" />
-              <h3 className="font-cinzel text-xl font-bold text-bloomsbury-rose mb-2">Sacred Sites</h3>
+              <h3 className="font-cinzel text-xl font-bold text-secondary mb-2">Sacred Sites</h3>
               <p className="font-montserrat text-sm text-muted-foreground leading-relaxed">
                 Stonehenge, Glastonbury—power places across Europe
               </p>
