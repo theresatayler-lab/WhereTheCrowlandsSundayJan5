@@ -146,7 +146,7 @@ export const Home = () => {
       {/* About Section */}
       <div className="relative bg-card/30 py-24 overflow-hidden">
         <div 
-          className="absolute inset-0 opacity-5 bg-engraving-coral bg-cover bg-center"
+          className="absolute inset-0 opacity-15 bg-engraving-coral bg-cover bg-center"
           style={{ mixBlendMode: 'multiply' }}
         />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
