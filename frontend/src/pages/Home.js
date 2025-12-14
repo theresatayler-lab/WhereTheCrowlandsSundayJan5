@@ -121,6 +121,15 @@ export const Home = () => {
         </div>
       </div>
       
+      {/* Decorative Divider */}
+      <div className="flex justify-center py-12">
+        <img 
+          src="https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/u9u50jrz_Now_can_we_create_a_full_brand_from_this_with_graphic_downloa_0fd417a5-4e03-4cd2-a771-053079e14c28_2.png"
+          alt="Decorative crow in triangle"
+          className="h-24 opacity-50"
+        />
+      </div>
+
       {/* About Section */}
       <div className="bg-card/30 py-24">
         <div className="max-w-4xl mx-auto px-6 text-center">
