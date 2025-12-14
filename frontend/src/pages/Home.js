@@ -143,9 +143,9 @@ export const Home = () => {
                 className="w-24 h-24 mx-auto mb-4 opacity-70"
                 style={{ mixBlendMode: 'multiply' }}
               />
-              <h3 className="font-cinzel text-xl font-bold text-secondary mb-2">Sacred Sites</h3>
+              <h3 className="font-cinzel text-xl font-bold text-secondary mb-2">Power Places</h3>
               <p className="font-crimson text-sm text-muted-foreground leading-relaxed">
-                Stonehenge, Glastonbury—power places across Europe
+                Sacred geometry in the land—Stonehenge, Glastonbury, and beyond
               </p>
             </GlassCard>
           </Link>
