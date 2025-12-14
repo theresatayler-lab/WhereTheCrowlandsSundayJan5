@@ -128,9 +128,9 @@ export const Home = () => {
                 className="w-24 h-24 mx-auto mb-4 opacity-70"
                 style={{ mixBlendMode: 'multiply' }}
               />
-              <h3 className="font-cinzel text-xl font-bold text-secondary mb-2">Historical Figures</h3>
+              <h3 className="font-cinzel text-xl font-bold text-secondary mb-2">The Experimenters</h3>
               <p className="font-crimson text-sm text-muted-foreground leading-relaxed">
-                Gardner, Fortune, Crowley—pioneers of modern practice
+                Gardner, Fortune, Crowley—they tested formulas so you can adapt them
               </p>
             </GlassCard>
           </Link>
