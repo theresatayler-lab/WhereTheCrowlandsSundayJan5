@@ -57,9 +57,9 @@ Be clear about what is documented historical practice vs. modern adaptation. Kee
           className="text-center mb-8"
         >
           <Sparkles className="w-16 h-16 text-primary mx-auto mb-4" />
-          <h1 className="font-italiana text-4xl md:text-6xl text-primary mb-4">Request a Spell</h1>
+          <h1 className="font-italiana text-4xl md:text-6xl text-primary mb-4">Build Your Ritual</h1>
           <p className="font-montserrat text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Describe your need. Get a formula rooted in documented historical practice.
+            Describe your need. Get a practical formula based on tested patterns. Adapt it as you go.
           </p>
         </motion.div>
 
