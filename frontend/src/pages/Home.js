@@ -8,20 +8,30 @@ export const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <div className="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-12">
         <div
           className="absolute inset-0 z-0"
           style={{
             backgroundImage: 'url(https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/t5tfc6i3_COuld_we_creatre_more_of_these_--profile_bsfwy2d_--v_7_d08b86ee-a6ac-4cf3-a814-1344b45b3380_1.png)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: '0.15',
+            opacity: '0.35',
+            mixBlendMode: 'multiply',
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
         </div>
         
-        <div className="relative z-10 text-center max-w-4xl px-6">
+        <div className="relative z-10 text-center max-w-5xl px-6 flex flex-col items-center">
+          {/* Large Central Logo */}
+          <img 
+            src="https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/fmscypbs_2.png"
+            alt="Where The Crow Lands"
+            className="w-64 h-64 mb-8 opacity-90"
+            style={{ mixBlendMode: 'multiply' }}
+          />
+          
+          <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
