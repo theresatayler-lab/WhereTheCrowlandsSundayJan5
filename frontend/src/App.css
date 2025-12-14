@@ -17,3 +17,15 @@
 .glow-secondary:hover {
   box-shadow: 0 0 30px rgba(6, 19, 60, 0.5);
 }
+
+/* Remove white backgrounds from logos */
+.logo-blend {
+  mix-blend-mode: darken;
+  filter: brightness(0) saturate(100%) invert(8%) sepia(12%) saturate(2020%) hue-rotate(314deg) brightness(95%) contrast(93%);
+}
+
+/* Alternative: multiply blend for natural integration */
+.logo-multiply {
+  mix-blend-mode: multiply;
+  opacity: 0.95;
+}
