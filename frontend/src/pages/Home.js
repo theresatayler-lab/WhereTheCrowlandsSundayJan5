@@ -72,7 +72,7 @@ export const Home = () => {
           <Link to="/spell-request" data-testid="section-spell-request">
             <GlassCard testId="card-spell-request">
               <Sparkles className="w-12 h-12 text-primary mb-4" />
-              <h3 className="font-cinzel text-xl font-bold text-bloomsbury-rose mb-2">Spell Request</h3>
+              <h3 className="font-cinzel text-xl font-bold text-secondary mb-2">Spell Request</h3>
               <p className="font-montserrat text-sm text-muted-foreground leading-relaxed">
                 Describe your need, get a custom spell rooted in historical practice
               </p>
