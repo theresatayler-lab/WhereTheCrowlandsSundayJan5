@@ -61,7 +61,12 @@ module.exports = {
         sm: '0.125rem',
       },
       backgroundImage: {
-        'engraving': "url('https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/t5tfc6i3_COuld_we_creatre_more_of_these_--profile_bsfwy2d_--v_7_d08b86ee-a6ac-4cf3-a814-1344b45b3380_1.png')",
+        'engraving-landscape': "url('https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/t5tfc6i3_COuld_we_creatre_more_of_these_--profile_bsfwy2d_--v_7_d08b86ee-a6ac-4cf3-a814-1344b45b3380_1.png')",
+        'engraving-coral': "url('https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/8imph0v6_wherethecrowlands_Could_you_create_some_good_background_style_f734269c-7d4f-4368-8a41-ddf55a00a162_0.png')",
+        'engraving-texture-1': "url('https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/0pf521mf_wherethecrowlands_Could_you_create_some_good_background_style_f734269c-7d4f-4368-8a41-ddf55a00a162_1.png')",
+        'engraving-texture-2': "url('https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/8ywnuf0u_wherethecrowlands_Could_you_create_some_good_background_style_f734269c-7d4f-4368-8a41-ddf55a00a162_2.png')",
+        'engraving-texture-3': "url('https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/efxqeoam_wherethecrowlands_Could_you_create_some_good_background_style_f734269c-7d4f-4368-8a41-ddf55a00a162_3.png')",
+        'engraving-texture-4': "url('https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/oweu8jv6_wherethecrowlands_lets_create_more_background_images_for_an_a_71f68355-bc18-47e7-9913-17746665f787_0.png')",
       },
     },
   },
