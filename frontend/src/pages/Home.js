@@ -29,7 +29,7 @@ export const Home = () => {
             <h1 className="font-italiana text-5xl md:text-7xl text-primary mb-6 tracking-tight leading-none">
               Where The Crow Lands
             </h1>
-            <p className="font-cinzel text-xl md:text-2xl text-bloomsbury-rose mb-4">
+            <p className="font-cinzel text-xl md:text-2xl text-accent mb-4">
               Got a problem? We've got a ritual for that.
             </p>
             <p className="font-montserrat text-base md:text-lg text-foreground/80 leading-relaxed max-w-2xl mx-auto mb-8">
