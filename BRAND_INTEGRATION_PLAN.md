@@ -1,4 +1,4 @@
-# Brand Integration Plan - Where The Crow Lands
+# Brand Integration Plan - Where The Crowlands
 
 ## Assets Received (Batch 1)
 
@@ -122,7 +122,7 @@ Your images suggest we should use fonts that match the engraving aesthetic:
 ### Phase 2: Hero Integration (After logos)
 1. Use mystical landscape as hero background
 2. Add parchment texture overlay
-3. Position "Where The Crow Lands" text
+3. Position "Where The Crowlands" text
 4. Ensure readability with semi-transparent overlay
 
 ### Phase 3: Navigation (After logos)
@@ -180,7 +180,7 @@ Your images suggest we should use fonts that match the engraving aesthetic:
 
 ## Next Steps:
 
-1. **You upload**: Logo files (the actual Where The Crow Lands logo)
+1. **You upload**: Logo files (the actual Where The Crowlands logo)
 2. **I adjust**: Background to lighter color for engravings
 3. **I integrate**: Your images throughout the site
 4. **You review**: See mockup and approve direction
@@ -190,13 +190,13 @@ Your images suggest we should use fonts that match the engraving aesthetic:
 
 ```
 ┌─────────────────────────────────────────┐
-│  [CROW LOGO] Where The Crow Lands       │  ← Your logo here
+│  [CROW LOGO] Where The Crowlands       │  ← Your logo here
 │  ────────────────────────────────────   │
 └─────────────────────────────────────────┘
 
         [MYSTICAL LANDSCAPE BACKGROUND]
         
-        Where The Crow Lands
+        Where The Crowlands
         Got a problem? We've got a ritual for that.
         
         ── crow ornament ──

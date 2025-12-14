@@ -1,4 +1,4 @@
-# Design Customization Guide - Where The Crow Lands
+# Design Customization Guide - Where The Crowlands
 
 ## Current Design System
 
@@ -89,7 +89,7 @@ Just say: "I want headings to look more [gothic/modern/elegant/bold]"
 Or give me specific Google Fonts names if you have them.
 
 ### 3. LOGO / BRANDING
-**Current:** Moon icon + "Where The Crow Lands" text
+**Current:** Moon icon + "Where The Crowlands" text
 
 **Options:**
 a) **Custom crow illustration** - Do you have one or want me to source?
@@ -284,7 +284,7 @@ All can be updated quickly!
 ## My Recommendation
 
 **Step 1:** Tell me in your own words:
-"I want Where The Crow Lands to feel _____ and look _____"
+"I want Where The Crowlands to feel _____ and look _____"
 
 **Step 2:** If you have assets (logo, photos), share those
 

@@ -1,4 +1,4 @@
-# Brand Assets Inventory - Where The Crow Lands
+# Brand Assets Inventory - Where The Crowlands
 
 ## Complete Asset Library (19 Images Total)
 

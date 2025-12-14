@@ -1,4 +1,4 @@
-# Color Scheme Update - Where The Crow Lands
+# Color Scheme Update - Where The Crowlands
 
 ## ✅ Applied Brand Colors
 
@@ -179,4 +179,4 @@ Quick copy-paste for design tools:
 
 ## Final Result
 
-A darker, more traditional occult aesthetic that feels authentic to witchcraft practice while maintaining modern UI/UX standards. The blood red and midnight blue create a powerful, mysterious atmosphere perfect for "Where The Crow Lands."
+A darker, more traditional occult aesthetic that feels authentic to witchcraft practice while maintaining modern UI/UX standards. The blood red and midnight blue create a powerful, mysterious atmosphere perfect for "Where The Crowlands."
