@@ -23,7 +23,7 @@ export const Navigation = ({ user, onLogout }) => {
           <Link to="/" className="flex items-center space-x-3" data-testid="nav-logo">
             <img 
               src="https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/nc8oadiz_1.png" 
-              alt="Where The Crow Lands Logo"
+              alt="Where The Crowlands Logo"
               className="h-16 w-auto"
               style={{ mixBlendMode: 'multiply' }}
             />

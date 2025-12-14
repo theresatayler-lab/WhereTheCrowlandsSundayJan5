@@ -26,7 +26,7 @@ export const Home = () => {
           {/* Large Central Logo */}
           <img 
             src="https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/li34ks3x_Where%20the%20Crowlands%20Logos.png"
-            alt="Where The Crow Lands"
+            alt="Where The Crowlands"
             className="w-64 h-64 mb-8"
           />
           
@@ -37,7 +37,7 @@ export const Home = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="font-italiana text-5xl md:text-7xl text-primary mb-6 tracking-tight leading-none">
-              Where The Crow Lands
+              Where The Crowlands
             </h1>
             <p className="font-cinzel text-xl md:text-2xl text-accent mb-4">
               Got a problem? We've got a ritual for that.

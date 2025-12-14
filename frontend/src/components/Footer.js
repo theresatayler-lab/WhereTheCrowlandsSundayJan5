@@ -10,7 +10,7 @@ export const Footer = () => {
           <div className="flex flex-col items-center md:items-start">
             <img 
               src="https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/li34ks3x_Where%20the%20Crowlands%20Logos.png"
-              alt="Where The Crow Lands Badge"
+              alt="Where The Crowlands Badge"
               className="h-48 w-48 mb-6"
             />
             <p className="font-crimson text-sm text-center md:text-left text-muted-foreground leading-relaxed">
@@ -78,7 +78,7 @@ export const Footer = () => {
         <div className="mt-12 pt-6 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="font-crimson text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Where The Crow Lands. All rights reserved.
+              © {new Date().getFullYear()} Where The Crowlands. All rights reserved.
             </p>
             <p className="font-crimson text-xs text-muted-foreground mt-2 md:mt-0">
               Built with historical research & modern technology
