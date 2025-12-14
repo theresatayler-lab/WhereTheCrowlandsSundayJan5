@@ -13,6 +13,7 @@ import { AIChat } from './pages/AIChat';
 import { AIImage } from './pages/AIImage';
 import { Profile } from './pages/Profile';
 import { SpellRequest } from './pages/SpellRequest';
+import { Footer } from './components/Footer';
 import './App.css';
 
 function App() {
