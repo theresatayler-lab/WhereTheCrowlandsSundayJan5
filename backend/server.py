@@ -108,6 +108,11 @@ class ChatMessage(BaseModel):
     session_id: Optional[str] = None
     archetype: Optional[str] = None  # Optional archetype ID for persona-based responses
 
+class SpellRequest(BaseModel):
+    intention: str
+    archetype: Optional[str] = None
+    generate_image: bool = True
+
 class ImageGenerationRequest(BaseModel):
     prompt: str
 
