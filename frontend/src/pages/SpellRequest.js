@@ -18,6 +18,10 @@ export const SpellRequest = ({ selectedArchetype: propArchetype }) => {
   const [generateImage, setGenerateImage] = useState(true);
 
   const currentGuide = activeArchetype ? getArchetypeById(activeArchetype) : null;
+  
+  // Debug: Log archetypes
+  console.log('ARCHETYPES in SpellRequest:', ARCHETYPES);
+  console.log('Number of archetypes:', ARCHETYPES?.length);
 
   const handleArchetypeChange = (archetypeId) => {
     setActiveArchetype(archetypeId);
