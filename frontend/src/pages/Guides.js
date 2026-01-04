@@ -10,11 +10,17 @@ import { toast } from 'sonner';
 export const Guides = () => {
   const [selectedGuide, setSelectedGuide] = useState(null);
   const currentArchetypeId = getCurrentArchetype();
+  const navigate = useNavigate();
 
   const handleSelectAsGuide = (archetypeId) => {
     setCurrentArchetype(archetypeId);
-    toast.success(`${getArchetypeById(archetypeId).shortName} is now your guide`);
-    setSelectedGuide(null);
+    const guideName = getArchetypeById(archetypeId).shortName;
+    toast.success(`${guideName} is now your guide! Redirecting to spell crafting...`);
+    
+    // Navigate to spell-request page after a short delay
+    setTimeout(() => {
+      navigate('/spell-request');
+    }, 1000);
   };
 
   return (
