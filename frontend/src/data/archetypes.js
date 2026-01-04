@@ -108,8 +108,12 @@ export const ARCHETYPES = [
       "Women's Voluntary Service (WWII)",
       'Victorian spiritualism and table-tapping'
     ],
-    image: null, // Placeholder until image is uploaded
-    galleryImages: []
+    image: 'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/ya1q64yz_Cathleen3.png',
+    galleryImages: [
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/zetyy6pt_Cathleen2.png',
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/ya1q64yz_Cathleen3.png',
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/iae9o8u3_Cathleen4.png'
+    ]
   },
   {
     id: 'catherine',
