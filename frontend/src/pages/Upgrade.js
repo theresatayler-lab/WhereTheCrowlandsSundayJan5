@@ -141,13 +141,24 @@ export const Upgrade = () => {
             </ul>
 
             <button
-              className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-sm font-montserrat tracking-widest uppercase text-sm hover:bg-primary/90 transition-all flex items-center justify-center gap-2"
-              disabled>
-              <Sparkles className="w-5 h-5" />
-              Coming Soon - Stripe Integration
+              onClick={handleUpgrade}
+              disabled={loading}
+              className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-sm font-montserrat tracking-widest uppercase text-sm hover:bg-primary/90 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Redirecting to Checkout...
+                </>
+              ) : (
+                <>
+                  <Sparkles className="w-5 h-5" />
+                  Upgrade to Pro - $19/Year
+                </>
+              )}
             </button>
             <p className="text-center font-montserrat text-xs text-muted-foreground mt-3">
-              Payment processing will be available soon!
+              Secure checkout powered by Stripe
             </p>
           </motion.div>
         </div>
