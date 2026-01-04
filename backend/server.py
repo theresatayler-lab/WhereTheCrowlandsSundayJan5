@@ -916,6 +916,199 @@ async def manual_upgrade_user(user_email: str, admin_key: str):
     
     return {'success': True, 'message': f'User {user_email} upgraded to paid tier'}
 
+# Stripe Payment Integration
+class CreateCheckoutRequest(BaseModel):
+    origin_url: str
+
+@api_router.post('/stripe/create-checkout')
+async def create_stripe_checkout(request: CreateCheckoutRequest, user = Depends(get_current_user)):
+    """Create a Stripe checkout session for yearly subscription"""
+    try:
+        # Initialize Stripe with webhook URL
+        webhook_url = f"{request.origin_url}/api/webhook/stripe"
+        stripe_checkout = StripeCheckout(api_key=STRIPE_API_KEY, webhook_url=webhook_url)
+        
+        # Fixed yearly subscription: $19.00/year
+        amount = 19.00
+        currency = "usd"
+        
+        # Success and cancel URLs
+        success_url = f"{request.origin_url}/payment-success?session_id={{CHECKOUT_SESSION_ID}}"
+        cancel_url = f"{request.origin_url}/upgrade"
+        
+        # Metadata to identify the user
+        metadata = {
+            'user_id': user['id'],
+            'user_email': user['email'],
+            'subscription_type': 'yearly',
+            'plan': 'pro'
+        }
+        
+        # Create checkout session
+        checkout_request = CheckoutSessionRequest(
+            amount=amount,
+            currency=currency,
+            success_url=success_url,
+            cancel_url=cancel_url,
+            metadata=metadata
+        )
+        
+        session = await stripe_checkout.create_checkout_session(checkout_request)
+        
+        # Create payment transaction record
+        transaction = {
+            'id': str(uuid.uuid4()),
+            'session_id': session.session_id,
+            'user_id': user['id'],
+            'user_email': user['email'],
+            'amount': amount,
+            'currency': currency,
+            'metadata': metadata,
+            'payment_status': 'pending',
+            'status': 'initiated',
+            'created_at': datetime.now(timezone.utc).isoformat()
+        }
+        
+        await db.payment_transactions.insert_one(transaction)
+        
+        return {
+            'checkout_url': session.url,
+            'session_id': session.session_id
+        }
+        
+    except Exception as e:
+        logging.error(f'Stripe checkout error: {str(e)}')
+        raise HTTPException(status_code=500, detail=f'Failed to create checkout session: {str(e)}')
+
+@api_router.get('/stripe/checkout-status/{session_id}')
+async def get_checkout_status(session_id: str, user = Depends(get_current_user)):
+    """Check the status of a Stripe checkout session"""
+    try:
+        # Initialize Stripe (webhook URL not needed for status check)
+        stripe_checkout = StripeCheckout(api_key=STRIPE_API_KEY, webhook_url="")
+        
+        # Get status from Stripe
+        status_response: CheckoutStatusResponse = await stripe_checkout.get_checkout_status(session_id)
+        
+        # Find transaction in database
+        transaction = await db.payment_transactions.find_one({'session_id': session_id}, {'_id': 0})
+        
+        if not transaction:
+            raise HTTPException(status_code=404, detail='Transaction not found')
+        
+        # Check if we've already processed this payment
+        if transaction.get('payment_status') == 'paid' and transaction.get('processed'):
+            return {
+                'status': status_response.status,
+                'payment_status': status_response.payment_status,
+                'already_processed': True
+            }
+        
+        # Update transaction status
+        await db.payment_transactions.update_one(
+            {'session_id': session_id},
+            {
+                '$set': {
+                    'status': status_response.status,
+                    'payment_status': status_response.payment_status,
+                    'updated_at': datetime.now(timezone.utc).isoformat()
+                }
+            }
+        )
+        
+        # If payment succeeded, upgrade the user
+        if status_response.payment_status == 'paid' and not transaction.get('processed'):
+            current_time = datetime.now(timezone.utc)
+            
+            # Upgrade user to paid tier
+            await db.users.update_one(
+                {'id': transaction['user_id']},
+                {
+                    '$set': {
+                        'subscription_tier': 'paid',
+                        'subscription_status': 'active',
+                        'subscription_start': current_time.isoformat(),
+                        'subscription_end': (current_time + timedelta(days=365)).isoformat(),
+                        'upgraded_at': current_time.isoformat(),
+                        'stripe_customer_id': status_response.metadata.get('stripe_customer_id'),
+                        'stripe_subscription_id': session_id
+                    }
+                }
+            )
+            
+            # Mark transaction as processed
+            await db.payment_transactions.update_one(
+                {'session_id': session_id},
+                {'$set': {'processed': True, 'processed_at': current_time.isoformat()}}
+            )
+        
+        return {
+            'status': status_response.status,
+            'payment_status': status_response.payment_status,
+            'amount_total': status_response.amount_total,
+            'currency': status_response.currency
+        }
+        
+    except Exception as e:
+        logging.error(f'Checkout status error: {str(e)}')
+        raise HTTPException(status_code=500, detail=f'Failed to check status: {str(e)}')
+
+@api_router.post('/webhook/stripe')
+async def stripe_webhook(request: Request):
+    """Handle Stripe webhook events"""
+    try:
+        # Get raw body and signature
+        body = await request.body()
+        signature = request.headers.get('Stripe-Signature', '')
+        
+        # Initialize Stripe
+        stripe_checkout = StripeCheckout(api_key=STRIPE_API_KEY, webhook_url="")
+        
+        # Handle webhook
+        webhook_response = await stripe_checkout.handle_webhook(body, signature)
+        
+        # Process based on event type
+        if webhook_response.event_type == 'checkout.session.completed':
+            session_id = webhook_response.session_id
+            
+            # Find transaction
+            transaction = await db.payment_transactions.find_one({'session_id': session_id}, {'_id': 0})
+            
+            if transaction and not transaction.get('processed'):
+                current_time = datetime.now(timezone.utc)
+                
+                # Upgrade user
+                await db.users.update_one(
+                    {'id': transaction['user_id']},
+                    {
+                        '$set': {
+                            'subscription_tier': 'paid',
+                            'subscription_status': 'active',
+                            'subscription_start': current_time.isoformat(),
+                            'subscription_end': (current_time + timedelta(days=365)).isoformat(),
+                            'upgraded_at': current_time.isoformat()
+                        }
+                    }
+                )
+                
+                # Mark as processed
+                await db.payment_transactions.update_one(
+                    {'session_id': session_id},
+                    {
+                        '$set': {
+                            'payment_status': 'paid',
+                            'processed': True,
+                            'processed_at': current_time.isoformat()
+                        }
+                    }
+                )
+        
+        return {'status': 'success', 'event_type': webhook_response.event_type}
+        
+    except Exception as e:
+        logging.error(f'Webhook error: {str(e)}')
+        raise HTTPException(status_code=500, detail=str(e))
+
 # Include router
 app.include_router(api_router)
 
