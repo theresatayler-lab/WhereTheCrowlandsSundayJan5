@@ -653,6 +653,54 @@ async def remove_favorite(request: FavoriteRequest, user = Depends(get_current_u
     )
     return {'success': True}
 
+# Grimoire (Saved Spells) endpoints
+@api_router.post('/grimoire/save', response_model=SavedSpellResponse)
+async def save_spell_to_grimoire(request: SaveSpellRequest, user = Depends(get_current_user)):
+    """Save a generated spell to the user's personal grimoire"""
+    spell_id = str(uuid.uuid4())
+    
+    # Extract title from spell data for easy display
+    title = request.spell_data.get('title', 'Untitled Spell')
+    
+    saved_spell = {
+        'id': spell_id,
+        'user_id': user['id'],
+        'spell_data': request.spell_data,
+        'archetype_id': request.archetype_id,
+        'archetype_name': request.archetype_name,
+        'archetype_title': request.archetype_title,
+        'image_base64': request.image_base64,
+        'title': title,
+        'created_at': datetime.now(timezone.utc).isoformat()
+    }
+    
+    await db.user_spells.insert_one(saved_spell)
+    
+    return SavedSpellResponse(**saved_spell)
+
+@api_router.get('/grimoire/spells', response_model=List[SavedSpellResponse])
+async def get_user_grimoire(user = Depends(get_current_user)):
+    """Retrieve all spells saved by the current user"""
+    spells = await db.user_spells.find(
+        {'user_id': user['id']}, 
+        {'_id': 0}
+    ).sort('created_at', -1).to_list(100)
+    
+    return spells
+
+@api_router.delete('/grimoire/spells/{spell_id}')
+async def delete_saved_spell(spell_id: str, user = Depends(get_current_user)):
+    """Delete a saved spell from the user's grimoire"""
+    result = await db.user_spells.delete_one({
+        'id': spell_id,
+        'user_id': user['id']
+    })
+    
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail='Spell not found or unauthorized')
+    
+    return {'success': True, 'message': 'Spell deleted from grimoire'}
+
 # Include router
 app.include_router(api_router)
 
