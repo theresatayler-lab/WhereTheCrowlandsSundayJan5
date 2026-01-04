@@ -33,7 +33,7 @@ backend:
     status_history:
       - working: true
         agent: "testing"
-        comment: "✅ PASSED - AI responds AS Shiggy with poetry, courage themes, and Rubáiyát references detected"
+        comment: "✅ PASSED - AI responds AS Shiggy with poetry, courage themes, bird omens, and Rubáiyát references detected"
 
   - task: "POST /api/ai/chat with archetype=kathleen"
     implemented: true
@@ -46,6 +46,30 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ PASSED - AI responds AS Kathleen with secrets, protection, family, documents, and veil themes detected"
+
+  - task: "POST /api/ai/chat with archetype=catherine"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ PASSED - AI responds AS Catherine with music, song, craft, bird magic, joy, and making themes detected"
+
+  - task: "POST /api/ai/chat with archetype=theresa"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "✅ PASSED - AI responds AS Theresa with truth, research, story, pattern, generational healing, and ancestor themes detected"
 
   - task: "User authentication system"
     implemented: true
