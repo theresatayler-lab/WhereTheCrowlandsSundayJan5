@@ -108,21 +108,38 @@ const GuideCard = ({ archetype, index, isCurrentGuide, isExpanded, onToggle, onS
       }`}
     >
       {/* Image or Placeholder */}
-      <div className="w-full h-48 bg-gradient-to-b from-card to-muted/30 flex items-center justify-center border-b border-border overflow-hidden">
+      <div className="w-full h-56 bg-gradient-to-b from-muted/20 to-muted/40 flex items-center justify-center border-b border-border overflow-hidden relative">
         {archetype.image ? (
-          <img 
-            src={archetype.image} 
-            alt={archetype.shortName}
-            className="w-full h-full object-cover object-top"
-          />
+          <>
+            <img 
+              src={archetype.image} 
+              alt={archetype.shortName}
+              className="w-full h-full object-cover"
+              style={{ objectPosition: '50% 25%' }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+            <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
+              <span className="text-3xl drop-shadow-lg">{archetype.birdEmoji}</span>
+              {isCurrentGuide && (
+                <span className="text-xs font-montserrat text-primary-foreground bg-primary px-2 py-1 rounded-sm shadow-lg">
+                  Your Guide
+                </span>
+              )}
+            </div>
+          </>
         ) : (
-          <div className="relative">
-            <svg viewBox="0 0 100 100" className="w-32 h-32 text-primary/20">
-              <ellipse cx="50" cy="35" rx="20" ry="25" fill="currentColor" />
-              <path d="M30 60 Q50 90 70 60 Q50 75 30 60" fill="currentColor" />
-              <circle cx="50" cy="30" r="15" fill="currentColor" opacity="0.5" />
+          <div className="relative flex flex-col items-center justify-center">
+            <svg viewBox="0 0 100 100" className="w-28 h-28 text-primary/25">
+              <ellipse cx="50" cy="35" rx="18" ry="22" fill="currentColor" />
+              <path d="M32 55 Q50 85 68 55 Q50 70 32 55" fill="currentColor" />
+              <circle cx="50" cy="30" r="12" fill="currentColor" opacity="0.6" />
             </svg>
-            <span className="absolute bottom-0 right-0 text-3xl">{archetype.birdEmoji}</span>
+            <span className="text-3xl mt-2">{archetype.birdEmoji}</span>
+            {isCurrentGuide && (
+              <span className="absolute top-3 right-3 text-xs font-montserrat text-primary-foreground bg-primary px-2 py-1 rounded-sm">
+                Your Guide
+              </span>
+            )}
           </div>
         )}
       </div>
