@@ -185,6 +185,7 @@ export const ARCHETYPES = [
       'Victorian bird-keeping customs'
     ],
     image: 'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/9l0li5vx_Katherine8.png',
+    video: 'https://customer-assets.emergentagent.com/job_witchcrowland/artifacts/6q5iwmtx_3KatherineSpellWork.mp4',
     galleryImages: [
       'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/b6j9g2m5_Katherine1.png',
       'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/zy35xehu_Katherine4.png',
