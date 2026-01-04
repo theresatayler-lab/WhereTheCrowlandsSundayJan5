@@ -171,8 +171,14 @@ export const ARCHETYPES = [
       'Irish folk music and storytelling',
       'Victorian bird-keeping customs'
     ],
-    image: null, // Placeholder until image is uploaded
-    galleryImages: []
+    image: 'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/9l0li5vx_Katherine8.png',
+    galleryImages: [
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/b6j9g2m5_Katherine1.png',
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/zy35xehu_Katherine4.png',
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/fhb3fcwi_Katherine5.png',
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/i3fgjwiw_Katherine7.png',
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/9l0li5vx_Katherine8.png'
+    ]
   },
   {
     id: 'theresa',
