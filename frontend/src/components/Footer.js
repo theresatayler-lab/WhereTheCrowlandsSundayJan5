@@ -12,6 +12,7 @@ export const Footer = () => {
               src="https://customer-assets.emergentagent.com/job_diywizardry/artifacts/734861j5_generated-image-2026-01-04%20%286%29.png"
               alt="Where The Crowlands Badge"
               className="h-48 w-48 mb-6"
+              style={{ mixBlendMode: 'multiply' }}
             />
             <p className="font-crimson text-sm text-center md:text-left text-muted-foreground leading-relaxed">
               Build your own practice. No gatekeepers, no expensive services—just formulas, patterns, and your power.
