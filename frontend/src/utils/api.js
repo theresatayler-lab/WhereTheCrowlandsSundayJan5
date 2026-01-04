@@ -124,3 +124,32 @@ export const favoritesAPI = {
     return response.data;
   },
 };
+
+export const grimoireAPI = {
+  saveSpell: async (spellData, archetypeId, archetypeName, archetypeTitle, imageBase64) => {
+    const response = await axios.post(
+      `${API}/grimoire/save`,
+      {
+        spell_data: spellData,
+        archetype_id: archetypeId,
+        archetype_name: archetypeName,
+        archetype_title: archetypeTitle,
+        image_base64: imageBase64,
+      },
+      { headers: getAuthHeader() }
+    );
+    return response.data;
+  },
+  getAllSpells: async () => {
+    const response = await axios.get(`${API}/grimoire/spells`, {
+      headers: getAuthHeader(),
+    });
+    return response.data;
+  },
+  deleteSpell: async (spellId) => {
+    const response = await axios.delete(`${API}/grimoire/spells/${spellId}`, {
+      headers: getAuthHeader(),
+    });
+    return response.data;
+  },
+};
