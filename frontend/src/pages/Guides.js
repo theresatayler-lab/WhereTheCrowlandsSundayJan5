@@ -108,16 +108,22 @@ const GuideCard = ({ archetype, index, isCurrentGuide, isExpanded, onToggle, onS
       }`}
     >
       {/* Image or Placeholder */}
-      <div className="w-full h-56 bg-gradient-to-b from-muted/20 to-muted/40 flex items-center justify-center border-b border-border overflow-hidden relative">
+      <div 
+        className="w-full h-56 flex items-center justify-center border-b border-border overflow-hidden relative"
+        style={{ backgroundColor: '#D8CBB3' }}
+      >
         {archetype.image ? (
           <>
             <img 
               src={archetype.image} 
               alt={archetype.shortName}
               className="w-full h-full object-cover"
-              style={{ objectPosition: '50% 25%' }}
+              style={{ 
+                objectPosition: '50% 25%',
+                mixBlendMode: 'multiply'
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between">
               <span className="text-3xl drop-shadow-lg">{archetype.birdEmoji}</span>
               {isCurrentGuide && (
