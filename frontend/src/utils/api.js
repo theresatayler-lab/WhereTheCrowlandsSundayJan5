@@ -72,15 +72,23 @@ export const timelineAPI = {
 };
 
 export const aiAPI = {
-  chat: async (message, sessionId) => {
+  chat: async (message, sessionId, archetype = null) => {
     const response = await axios.post(`${API}/ai/chat`, {
       message,
       session_id: sessionId,
+      archetype: archetype,
     });
     return response.data;
   },
   generateImage: async (prompt) => {
     const response = await axios.post(`${API}/ai/generate-image`, { prompt });
+    return response.data;
+  },
+};
+
+export const archetypesAPI = {
+  getAll: async () => {
+    const response = await axios.get(`${API}/archetypes`);
     return response.data;
   },
 };
