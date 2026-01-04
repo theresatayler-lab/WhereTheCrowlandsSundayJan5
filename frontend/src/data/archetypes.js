@@ -108,7 +108,8 @@ export const ARCHETYPES = [
       "Women's Voluntary Service (WWII)",
       'Victorian spiritualism and table-tapping'
     ],
-    placeholderImage: 'kathleen'
+    image: null, // Placeholder until image is uploaded
+    galleryImages: []
   },
   {
     id: 'catherine',
