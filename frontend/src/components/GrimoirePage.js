@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ChevronDown, ChevronUp, Clock, Moon, Sun, Calendar, 
@@ -7,6 +7,7 @@ import {
   AlertTriangle, Quote, History, Users
 } from 'lucide-react';
 import { toast } from 'sonner';
+import html2pdf from 'html2pdf.js';
 
 // Icon mapping for materials
 const MATERIAL_ICONS = {
