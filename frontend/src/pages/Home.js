@@ -27,7 +27,8 @@ export const Home = () => {
           <img 
             src="https://customer-assets.emergentagent.com/job_diywizardry/artifacts/734861j5_generated-image-2026-01-04%20%286%29.png"
             alt="Where The Crowlands"
-            className="w-64 h-64 mb-8"
+            className="w-72 h-72 mb-8"
+            style={{ mixBlendMode: 'multiply' }}
           />
           
           <div className="max-w-3xl">
