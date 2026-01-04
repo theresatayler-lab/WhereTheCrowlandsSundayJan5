@@ -836,6 +836,51 @@ async def delete_saved_spell(spell_id: str, user = Depends(get_current_user)):
     
     return {'success': True, 'message': 'Spell deleted from grimoire'}
 
+# Subscription endpoints
+@api_router.get('/subscription/status')
+async def get_subscription_status(user = Depends(get_current_user)):
+    """Get current user's subscription status and limits"""
+    limit_check = await check_spell_generation_limit(user)
+    
+    return {
+        'subscription_tier': user.get('subscription_tier', 'free'),
+        'subscription_status': user.get('subscription_status', 'active'),
+        'spell_limit': limit_check['limit'],
+        'spells_remaining': limit_check['remaining'],
+        'spells_used': user.get('spell_generation_count', 0),
+        'total_spells_generated': user.get('total_spells_generated', 0),
+        'total_spells_saved': user.get('total_spells_saved', 0),
+        'can_save_spells': user.get('subscription_tier') == 'paid',
+        'can_download_pdf': user.get('subscription_tier') == 'paid'
+    }
+
+@api_router.post('/subscription/upgrade-manual')
+async def manual_upgrade_user(user_email: str, admin_key: str):
+    """Admin endpoint to manually upgrade a user (for testing before Stripe)"""
+    # Simple admin key check (change this in production!)
+    if admin_key != os.environ.get('ADMIN_KEY', 'change-me-in-production'):
+        raise HTTPException(status_code=403, detail='Unauthorized')
+    
+    user = await db.users.find_one({'email': user_email}, {'_id': 0})
+    if not user:
+        raise HTTPException(status_code=404, detail='User not found')
+    
+    current_time = datetime.now(timezone.utc)
+    await db.users.update_one(
+        {'email': user_email},
+        {
+            '$set': {
+                'subscription_tier': 'paid',
+                'subscription_status': 'active',
+                'subscription_start': current_time.isoformat(),
+                'subscription_end': (current_time + timedelta(days=365)).isoformat(),
+                'upgraded_at': current_time.isoformat()
+            }
+        }
+    )
+    
+    return {'success': True, 'message': f'User {user_email} upgraded to paid tier'}
+
 # Include router
 app.include_router(api_router)
 
