@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { X, ArrowRight, Feather, Moon, BookOpen, Sparkles } from 'lucide-react';
 import { ARCHETYPES } from '../data/archetypes';
 
@@ -10,6 +11,7 @@ export const OnboardingModal = ({ onComplete, onSelectArchetype }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState(0); // 0: welcome, 1: select archetype
   const [selectedArchetype, setSelectedArchetype] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Check if user has completed onboarding
@@ -25,7 +27,7 @@ export const OnboardingModal = ({ onComplete, onSelectArchetype }) => {
     }
   }, [onSelectArchetype]);
 
-  const handleComplete = (archetypeId) => {
+  const handleComplete = (archetypeId, goToSpellPage = false) => {
     localStorage.setItem(ONBOARDING_KEY, 'true');
     if (archetypeId) {
       localStorage.setItem(ARCHETYPE_KEY, archetypeId);
@@ -33,10 +35,15 @@ export const OnboardingModal = ({ onComplete, onSelectArchetype }) => {
     setIsOpen(false);
     if (onComplete) onComplete();
     if (onSelectArchetype) onSelectArchetype(archetypeId);
+    
+    // Navigate to spell request page if a guide was selected
+    if (goToSpellPage) {
+      navigate('/spell-request');
+    }
   };
 
   const handleSkip = () => {
-    handleComplete(null);
+    handleComplete(null, false);
   };
 
   if (!isOpen) return null;
