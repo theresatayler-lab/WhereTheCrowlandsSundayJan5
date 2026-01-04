@@ -72,6 +72,10 @@ function App() {
           <Route path="/ai-chat" element={<AIChat selectedArchetype={selectedArchetype} />} />
           <Route path="/ai-image" element={<AIImage />} />
           <Route
+            path="/my-grimoire"
+            element={user ? <MyGrimoire /> : <Navigate to="/auth" />}
+          />
+          <Route
             path="/profile"
             element={user ? <Profile user={user} /> : <Navigate to="/auth" />}
           />
