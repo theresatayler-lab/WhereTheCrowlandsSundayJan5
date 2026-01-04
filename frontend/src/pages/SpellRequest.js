@@ -146,6 +146,7 @@ export const SpellRequest = ({ selectedArchetype: propArchetype }) => {
                 <button
                   onClick={() => setShowArchetypeSelector(!showArchetypeSelector)}
                   className="px-4 py-2 bg-card border border-border rounded-sm font-montserrat text-xs tracking-wider text-muted-foreground hover:border-primary/30 transition-all flex items-center gap-2"
+                  id="change-guide-button"
                 >
                   <span>Change Guide</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${showArchetypeSelector ? 'rotate-180' : ''}`} />
@@ -153,8 +154,14 @@ export const SpellRequest = ({ selectedArchetype: propArchetype }) => {
                 
                 {showArchetypeSelector && (
                   <div
-                    className="absolute right-0 mt-2 w-80 bg-card border-2 border-primary/30 rounded-sm shadow-2xl z-50"
-                    style={{ maxHeight: '600px', overflowY: 'auto', minHeight: '200px' }}
+                    className="absolute right-0 mt-2 w-80 bg-card border-2 border-primary/30 rounded-sm shadow-2xl z-[9999]"
+                    style={{ 
+                      maxHeight: '600px', 
+                      overflowY: 'auto',
+                      display: 'block',
+                      visibility: 'visible',
+                      opacity: 1
+                    }}
                   >
                     <button
                       onClick={() => handleArchetypeChange(null)}
