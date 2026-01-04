@@ -121,6 +121,7 @@ export const ARCHETYPES = [
       'Victorian spiritualism and table-tapping'
     ],
     image: 'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/2yrmxbqx_Cathleen16.png',
+    video: 'https://customer-assets.emergentagent.com/job_witchcrowland/artifacts/gsq61t9z_CathleenSpell.mp4',
     galleryImages: [
       'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/zetyy6pt_Cathleen2.png',
       'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/ya1q64yz_Cathleen3.png',
