@@ -79,7 +79,7 @@ export const OnboardingModal = ({ onComplete, onSelectArchetype }) => {
             <ArchetypeSelectionStep
               selectedArchetype={selectedArchetype}
               onSelect={setSelectedArchetype}
-              onComplete={() => handleComplete(selectedArchetype)}
+              onComplete={() => handleComplete(selectedArchetype, true)}
               onSkip={handleSkip}
               onBack={() => setStep(0)}
             />
