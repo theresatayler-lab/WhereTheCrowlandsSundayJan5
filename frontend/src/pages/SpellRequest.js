@@ -129,6 +129,14 @@ export const SpellRequest = ({ selectedArchetype: propArchetype }) => {
   return (
     <div className="min-h-screen py-24 px-6">
       <div className="max-w-5xl mx-auto">
+        {/* Spell Limit Banner for Free Users */}
+        {subscriptionStatus && subscriptionStatus.subscription_tier === 'free' && (
+          <SpellLimitBanner 
+            remaining={subscriptionStatus.spells_remaining} 
+            limit={subscriptionStatus.spell_limit}
+          />
+        )}
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
