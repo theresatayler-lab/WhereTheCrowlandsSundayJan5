@@ -34,7 +34,7 @@ export const Guides = () => {
             ritual style, and way of seeing the world.
           </p>
           <p className="font-crimson text-lg text-accent italic">
-            "The women who walked before you left their spells in stories, their magic in memories."
+            &ldquo;The women who walked before you left their spells in stories, their magic in memories.&rdquo;
           </p>
         </motion.div>
 
