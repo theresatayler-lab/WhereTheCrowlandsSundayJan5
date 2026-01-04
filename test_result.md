@@ -180,10 +180,12 @@ test_plan:
     - "POST /api/ai/chat without archetype (neutral persona)"
     - "POST /api/ai/chat with archetype=shiggy"
     - "POST /api/ai/chat with archetype=kathleen"
+    - "POST /api/ai/chat with archetype=catherine"
+    - "POST /api/ai/chat with archetype=theresa"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
 
 agent_communication:
   - agent: "testing"
-    message: "Backend archetype system testing completed successfully. All 4 priority tests from review request passed. AI personas working correctly - Shiggy responds with poetry/courage themes, Kathleen with secrets/protection themes. One timeout occurred on general AI chat but archetype-specific chats work perfectly. Frontend testing not performed per system limitations."
+    message: "Backend archetype system testing completed successfully. ALL 6 priority tests from review request passed with 100% success rate. AI personas working perfectly - each archetype responds with their unique voice and themes. Shiggy: poetry/courage/birds, Kathleen: secrets/protection/family, Catherine: music/craft/joy, Theresa: truth/research/patterns. OpenAI GPT-5.1 integration working correctly. Frontend testing not performed per system limitations."
