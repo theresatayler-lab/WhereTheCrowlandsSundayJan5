@@ -150,13 +150,15 @@ export const SpellRequest = ({ selectedArchetype: propArchetype }) => {
                 
                 {showArchetypeSelector && (
                   <div
-                    className="absolute right-0 mt-2 w-80 bg-card border-2 border-primary/30 rounded-sm shadow-2xl z-[9999]"
+                    className="absolute right-0 mt-2 w-80 bg-card border-2 border-primary/30 rounded-sm shadow-2xl"
                     style={{ 
                       maxHeight: '600px', 
                       overflowY: 'auto',
                       display: 'block',
                       visibility: 'visible',
-                      opacity: 1
+                      opacity: 1,
+                      zIndex: 99999,
+                      position: 'absolute'
                     }}
                   >
                     <button
