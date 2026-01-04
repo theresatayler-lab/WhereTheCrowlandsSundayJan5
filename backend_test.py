@@ -367,6 +367,70 @@ class SpiritualAppAPITester:
                 return False
         return False
 
+    def test_ai_chat_catherine(self):
+        """Test AI chat with Catherine archetype"""
+        chat_data = {
+            "message": "I want to create something beautiful that brings joy to my family",
+            "archetype": "catherine"
+        }
+        
+        success, response = self.run_test(
+            "AI Chat - Catherine Archetype",
+            "POST",
+            "ai/chat",
+            200,
+            data=chat_data
+        )
+        
+        if success and isinstance(response, dict) and 'response' in response:
+            ai_response = response['response'].lower()
+            print(f"   AI Response length: {len(response['response'])} characters")
+            
+            # Check for Catherine-specific elements
+            catherine_indicators = ['music', 'song', 'craft', 'bird', 'creation', 'joy', 'artisan', 'making']
+            found_indicators = [indicator for indicator in catherine_indicators if indicator in ai_response]
+            
+            if found_indicators:
+                print(f"   ✅ Catherine persona detected - found: {', '.join(found_indicators)}")
+                return True
+            else:
+                print(f"   ❌ Catherine persona not detected in response")
+                print(f"   Response preview: {response['response'][:200]}...")
+                return False
+        return False
+
+    def test_ai_chat_theresa(self):
+        """Test AI chat with Theresa archetype"""
+        chat_data = {
+            "message": "Help me uncover hidden family patterns and break generational cycles",
+            "archetype": "theresa"
+        }
+        
+        success, response = self.run_test(
+            "AI Chat - Theresa Archetype",
+            "POST",
+            "ai/chat",
+            200,
+            data=chat_data
+        )
+        
+        if success and isinstance(response, dict) and 'response' in response:
+            ai_response = response['response'].lower()
+            print(f"   AI Response length: {len(response['response'])} characters")
+            
+            # Check for Theresa-specific elements
+            theresa_indicators = ['truth', 'research', 'story', 'pattern', 'generational', 'naming', 'bird', 'ancestor']
+            found_indicators = [indicator for indicator in theresa_indicators if indicator in ai_response]
+            
+            if found_indicators:
+                print(f"   ✅ Theresa persona detected - found: {', '.join(found_indicators)}")
+                return True
+            else:
+                print(f"   ❌ Theresa persona not detected in response")
+                print(f"   Response preview: {response['response'][:200]}...")
+                return False
+        return False
+
     def test_ai_chat(self):
         """Test AI chat functionality"""
         chat_data = {
