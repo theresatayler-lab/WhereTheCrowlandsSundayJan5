@@ -120,17 +120,17 @@ backend:
         comment: "Grimoire system fully functional. POST /api/grimoire/save successfully saves spells with guide attribution (archetype_id, archetype_name, archetype_title). GET /api/grimoire/spells retrieves all saved spells with correct structure. DELETE /api/grimoire/spells/{spell_id} successfully removes spells. Complete flow tested: generated spell with Shiggy guide -> saved to grimoire with guide attribution -> retrieved from grimoire -> verified guide attribution persists. All CRUD operations working correctly."
 
 frontend:
-  - task: "Frontend Testing - Not Performed"
+  - task: "Change Guide Dropdown - All 4 Guides with Portraits"
     implemented: true
-    working: "NA"
-    file: "/app/frontend/src/"
+    working: true
+    file: "/app/frontend/src/pages/SpellRequest.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
-      - working: "NA"
+      - working: true
         agent: "testing"
-        comment: "Frontend testing was not performed as per system limitations. Backend API testing completed successfully. Frontend testing should be done separately."
+        comment: "Successfully tested the 'Change Guide' dropdown on /spell-request page. All 4 guides (Shiggy, Kathleen, Catherine, Theresa) appear in the dropdown with their portrait images loaded from valid URLs. 'No Guide' option present as first item. 'Meet All Guides →' link present as last item. All guide options are clickable and functional - clicking each guide successfully updates the selected guide in the UI with toast notifications. Portrait images verified with valid src attributes pointing to customer-assets.emergentagent.com. Dropdown has maxHeight: 500px making it scrollable to view all 6 items (No Guide + 4 Guides + Meet All Guides link). Complete functionality working as expected."
 
 metadata:
   created_by: "testing_agent"
