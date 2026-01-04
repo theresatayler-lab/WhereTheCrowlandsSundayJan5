@@ -49,6 +49,9 @@ class UserResponse(BaseModel):
     id: str
     email: str
     name: str
+    subscription_tier: str = "free"
+    subscription_status: str = "active"
+    spell_generation_count: int = 0
 
 class AuthResponse(BaseModel):
     token: str
