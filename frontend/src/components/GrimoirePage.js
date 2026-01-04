@@ -69,6 +69,8 @@ export const GrimoirePage = ({ spell, archetype, imageBase64, onNewSpell }) => {
   const [showHistoricalContext, setShowHistoricalContext] = useState(false);
   const [checklistMode, setChecklistMode] = useState(false);
   const [completedSteps, setCompletedSteps] = useState(new Set());
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+  const grimoireRef = useRef(null);
   
   const style = ARCHETYPE_STYLES[archetype?.id] || ARCHETYPE_STYLES.neutral;
   
@@ -86,6 +88,42 @@ export const GrimoirePage = ({ spell, archetype, imageBase64, onNewSpell }) => {
     const text = `${spell.title}\n\n${spell.introduction}\n\nMaterials:\n${spell.materials?.map(m => `- ${m.name}`).join('\n')}\n\nSteps:\n${spell.steps?.map(s => `${s.number}. ${s.title}: ${s.instruction}`).join('\n')}\n\nSpoken Words:\n${spell.spoken_words?.invocation}\n${spell.spoken_words?.main_incantation}\n${spell.spoken_words?.closing}`;
     navigator.clipboard.writeText(text);
     toast.success('Spell copied to clipboard!');
+  };
+
+  const downloadAsPdf = async () => {
+    if (!grimoireRef.current) return;
+    
+    setIsGeneratingPdf(true);
+    toast.info('Generating your grimoire page...');
+    
+    try {
+      const element = grimoireRef.current;
+      const opt = {
+        margin: [10, 10, 10, 10],
+        filename: `${spell.title?.replace(/[^a-z0-9]/gi, '_') || 'spell'}_grimoire.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { 
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: '#D8CBB3'
+        },
+        jsPDF: { 
+          unit: 'mm', 
+          format: 'a4', 
+          orientation: 'portrait' 
+        },
+        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+      };
+      
+      await html2pdf().set(opt).from(element).save();
+      toast.success('Grimoire page downloaded!');
+    } catch (error) {
+      console.error('PDF generation error:', error);
+      toast.error('Failed to generate PDF. Please try again.');
+    } finally {
+      setIsGeneratingPdf(false);
+    }
   };
 
   if (spell.parse_error) {
