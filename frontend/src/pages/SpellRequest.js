@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { GlassCard } from '../components/GlassCard';
 import { GrimoirePage } from '../components/GrimoirePage';
-import { aiAPI } from '../utils/api';
+import { aiAPI, subscriptionAPI } from '../utils/api';
 import { ARCHETYPES, getArchetypeById } from '../data/archetypes';
 import { getCurrentArchetype, setCurrentArchetype } from '../components/OnboardingModal';
+import { SpellLimitBanner } from '../components/UpgradePrompt';
 import { Sparkles, BookOpen, Feather, ChevronDown, Loader2, User, ImageIcon } from 'lucide-react';
 import { toast } from 'sonner';
 import { Link } from 'react-router-dom';
@@ -16,8 +17,25 @@ export const SpellRequest = ({ selectedArchetype: propArchetype }) => {
   const [activeArchetype, setActiveArchetype] = useState(propArchetype || getCurrentArchetype());
   const [showArchetypeSelector, setShowArchetypeSelector] = useState(false);
   const [generateImage, setGenerateImage] = useState(true);
+  const [subscriptionStatus, setSubscriptionStatus] = useState(null);
 
   const currentGuide = activeArchetype ? getArchetypeById(activeArchetype) : null;
+
+  // Load subscription status
+  useEffect(() => {
+    const loadSubscriptionStatus = async () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        try {
+          const status = await subscriptionAPI.getStatus();
+          setSubscriptionStatus(status);
+        } catch (error) {
+          console.error('Failed to load subscription status:', error);
+        }
+      }
+    };
+    loadSubscriptionStatus();
+  }, []);
 
   const handleArchetypeChange = (archetypeId) => {
     setActiveArchetype(archetypeId);
