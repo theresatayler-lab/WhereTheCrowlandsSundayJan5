@@ -388,7 +388,26 @@ export const SpellRequest = ({ selectedArchetype: propArchetype }) => {
               
               {loading ? (
                 <div className="flex flex-col items-center justify-center h-[500px] text-center">
-                  <Loader2 className="w-16 h-16 text-primary animate-spin mb-4" />
+                  {/* Show guide video if available */}
+                  {currentGuide && currentGuide.video ? (
+                    <div className="w-full max-w-md mb-6">
+                      <div className="relative rounded-sm overflow-hidden border-2 border-primary/30 shadow-xl">
+                        <video
+                          src={currentGuide.video}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-auto"
+                          style={{ maxHeight: '350px', objectFit: 'cover' }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent pointer-events-none" />
+                      </div>
+                    </div>
+                  ) : (
+                    <Loader2 className="w-16 h-16 text-primary animate-spin mb-4" />
+                  )}
+                  
                   <p className="font-montserrat text-muted-foreground mb-2">
                     {currentGuide 
                       ? `${currentGuide.shortName} is crafting your ritual...`
