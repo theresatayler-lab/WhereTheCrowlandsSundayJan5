@@ -24,12 +24,17 @@ export const Home = () => {
         
         <div className="relative z-10 text-center max-w-5xl px-6 flex flex-col items-center">
           {/* Large Central Logo */}
-          <img 
-            src="https://customer-assets.emergentagent.com/job_diywizardry/artifacts/734861j5_generated-image-2026-01-04%20%286%29.png"
-            alt="Where The Crowlands"
-            className="w-72 h-72 mb-8"
-            style={{ mixBlendMode: 'multiply' }}
-          />
+          <div 
+            className="w-72 h-72 mb-8 flex items-center justify-center rounded-full"
+            style={{ backgroundColor: '#D8CBB3' }}
+          >
+            <img 
+              src="https://customer-assets.emergentagent.com/job_diywizardry/artifacts/734861j5_generated-image-2026-01-04%20%286%29.png"
+              alt="Where The Crowlands"
+              className="w-full h-full object-contain"
+              style={{ mixBlendMode: 'multiply' }}
+            />
+          </div>
           
           <div className="max-w-3xl">
           <motion.div
