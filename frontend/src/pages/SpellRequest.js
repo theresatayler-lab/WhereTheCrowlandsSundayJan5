@@ -151,7 +151,8 @@ export const SpellRequest = ({ selectedArchetype: propArchetype }) => {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="absolute right-0 mt-2 w-80 bg-card border border-border rounded-sm shadow-xl z-50 max-h-[600px] overflow-y-auto"
+                    className="absolute right-0 mt-2 w-80 bg-card border border-border rounded-sm shadow-xl z-50 overflow-y-auto"
+                    style={{ maxHeight: '500px' }}
                   >
                     <button
                       onClick={() => handleArchetypeChange(null)}
