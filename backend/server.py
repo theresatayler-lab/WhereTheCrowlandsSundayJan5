@@ -694,6 +694,21 @@ Respond ONLY with the JSON object, no other text."""
             except Exception as img_error:
                 logging.error(f'Spell image generation error: {str(img_error)}')
         
+        # Increment spell count for authenticated free users
+        if user and user.get('subscription_tier') == 'free':
+            await increment_spell_count(user['id'])
+        
+        # Get updated limit info for response
+        limit_info = None
+        if user:
+            updated_user = await db.users.find_one({'id': user['id']}, {'_id': 0})
+            limit_check = await check_spell_generation_limit(updated_user)
+            limit_info = {
+                'remaining': limit_check['remaining'],
+                'limit': limit_check['limit'],
+                'subscription_tier': user.get('subscription_tier', 'free')
+            }
+        
         return {
             'spell': spell_data,
             'image_base64': image_base64,
@@ -702,7 +717,8 @@ Respond ONLY with the JSON object, no other text."""
                 'name': archetype_name,
                 'title': archetype_title
             },
-            'session_id': session_id
+            'session_id': session_id,
+            'limit_info': limit_info
         }
         
     except Exception as e:
