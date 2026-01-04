@@ -17,6 +17,14 @@ export const authAPI = {
     const response = await axios.post(`${API}/auth/login`, data);
     return response.data;
   },
+  updateEmail: async (newEmail, password) => {
+    const response = await axios.post(
+      `${API}/auth/update-email`,
+      { new_email: newEmail, password },
+      { headers: getAuthHeader() }
+    );
+    return response.data;
+  },
 };
 
 export const deitiesAPI = {
