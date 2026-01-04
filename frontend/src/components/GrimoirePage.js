@@ -8,7 +8,8 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import html2pdf from 'html2pdf.js';
-import { grimoireAPI } from '../utils/api';
+import { grimoireAPI, subscriptionAPI } from '../utils/api';
+import { useNavigate } from 'react-router-dom';
 
 // Icon mapping for materials
 const MATERIAL_ICONS = {
