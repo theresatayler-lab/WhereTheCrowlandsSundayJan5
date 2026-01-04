@@ -71,6 +71,7 @@ export const GrimoirePage = ({ spell, archetype, imageBase64, onNewSpell }) => {
   const [checklistMode, setChecklistMode] = useState(false);
   const [completedSteps, setCompletedSteps] = useState(new Set());
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
   const grimoireRef = useRef(null);
   
   const style = ARCHETYPE_STYLES[archetype?.id] || ARCHETYPE_STYLES.neutral;
