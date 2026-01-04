@@ -25,7 +25,7 @@ export const Home = () => {
         <div className="relative z-10 text-center max-w-5xl px-6 flex flex-col items-center">
           {/* Large Central Logo */}
           <img 
-            src="https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/li34ks3x_Where%20the%20Crowlands%20Logos.png"
+            src="https://customer-assets.emergentagent.com/job_diywizardry/artifacts/734861j5_generated-image-2026-01-04%20%286%29.png"
             alt="Where The Crowlands"
             className="w-64 h-64 mb-8"
           />
