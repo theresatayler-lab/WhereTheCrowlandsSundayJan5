@@ -33,6 +33,9 @@ export const Navigation = ({ user, onLogout }) => {
           
           <div className="flex items-center space-x-1">
             {links.map((link) => {
+              // Skip auth-required links if user is not logged in
+              if (link.requiresAuth && !user) return null;
+              
               const Icon = link.icon;
               const isActive = location.pathname === link.to;
               return (
