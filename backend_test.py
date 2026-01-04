@@ -538,7 +538,8 @@ def main():
     tester.test_ai_chat_neutral()
     tester.test_ai_chat_shiggy()
     tester.test_ai_chat_kathleen()
-    tester.test_ai_chat()  # Keep original test for backward compatibility
+    tester.test_ai_chat_catherine()
+    tester.test_ai_chat_theresa()
     tester.test_ai_image_generation()
     
     # Test favorites (requires auth)
