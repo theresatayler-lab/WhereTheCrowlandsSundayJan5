@@ -247,6 +247,7 @@ export const ARCHETYPES = [
       'Contemporary bird mythology'
     ],
     image: 'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/daujlur9_Theresa6.png',
+    video: 'https://customer-assets.emergentagent.com/job_witchcrowland/artifacts/v6otbwkr_Theresa4421_Have_the_woman_open_her_purse_and_a_bird_fly_out%2C_as_the_bird_fly.mp4',
     galleryImages: [
       'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/7dqhsrv9_TheresaTayler7.png',
       'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/ti6j94bg_TheresaTayler8.png',
