@@ -487,6 +487,14 @@ export const GrimoirePage = ({ spell, archetype, imageBase64, onNewSpell }) => {
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-3 pt-4 border-t border-border">
           <button
+            onClick={saveToGrimoire}
+            disabled={isSaving}
+            className="px-4 py-2 bg-accent text-accent-foreground rounded-sm font-montserrat tracking-widest uppercase text-xs hover:bg-accent/90 transition-all flex items-center gap-2 disabled:opacity-50"
+          >
+            <Save className={`w-4 h-4 ${isSaving ? 'animate-pulse' : ''}`} />
+            {isSaving ? 'Saving...' : 'Save to Grimoire'}
+          </button>
+          <button
             onClick={copySpellToClipboard}
             className="px-4 py-2 bg-transparent text-primary border border-primary/30 rounded-sm font-montserrat tracking-widest uppercase text-xs hover:bg-primary/10 transition-all flex items-center gap-2"
           >
