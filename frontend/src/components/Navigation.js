@@ -9,6 +9,7 @@ export const Navigation = ({ user, onLogout }) => {
     { to: '/', label: 'Home', icon: Moon },
     { to: '/spell-request', label: 'Request Spell', icon: Sparkles },
     { to: '/guides', label: 'Guides', icon: Users },
+    { to: '/my-grimoire', label: 'My Grimoire', icon: BookOpen, requiresAuth: true },
     { to: '/rituals', label: 'Rituals', icon: Scroll },
     { to: '/deities', label: 'Deities', icon: Moon },
     { to: '/figures', label: 'Figures', icon: Users },
