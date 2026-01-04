@@ -461,11 +461,12 @@ export const GrimoirePage = ({ spell, archetype, imageBase64, onNewSpell }) => {
             Copy Spell
           </button>
           <button
-            onClick={() => toast.info('PDF export coming soon!')}
-            className="px-4 py-2 bg-transparent text-primary border border-primary/30 rounded-sm font-montserrat tracking-widest uppercase text-xs hover:bg-primary/10 transition-all flex items-center gap-2"
+            onClick={downloadAsPdf}
+            disabled={isGeneratingPdf}
+            className="px-4 py-2 bg-transparent text-primary border border-primary/30 rounded-sm font-montserrat tracking-widest uppercase text-xs hover:bg-primary/10 transition-all flex items-center gap-2 disabled:opacity-50"
           >
-            <Download className="w-4 h-4" />
-            Save as PDF
+            <Download className={`w-4 h-4 ${isGeneratingPdf ? 'animate-bounce' : ''}`} />
+            {isGeneratingPdf ? 'Generating...' : 'Save as PDF'}
           </button>
           <button
             onClick={onNewSpell}
