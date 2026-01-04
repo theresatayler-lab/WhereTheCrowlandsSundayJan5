@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { GlassCard } from '../components/GlassCard';
-import { favoritesAPI } from '../utils/api';
-import { User, Heart } from 'lucide-react';
+import { favoritesAPI, authAPI, subscriptionAPI } from '../utils/api';
+import { User, Heart, Mail, Key, Crown } from 'lucide-react';
 import { toast } from 'sonner';
 
 export const Profile = ({ user }) => {
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [subscriptionStatus, setSubscriptionStatus] = useState(null);
+  const [isChangingEmail, setIsChangingEmail] = useState(false);
+  const [emailFormData, setEmailFormData] = useState({
+    newEmail: '',
+    password: ''
+  });
+  const [updatingEmail, setUpdatingEmail] = useState(false);
 
   useEffect(() => {
     if (user) {
       fetchFavorites();
+      fetchSubscriptionStatus();
     }
   }, [user]);
 
@@ -23,6 +31,58 @@ export const Profile = ({ user }) => {
       console.error('Failed to fetch favorites:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchSubscriptionStatus = async () => {
+    try {
+      const status = await subscriptionAPI.getStatus();
+      setSubscriptionStatus(status);
+    } catch (error) {
+      console.error('Failed to fetch subscription status:', error);
+    }
+  };
+
+  const handleUpdateEmail = async (e) => {
+    e.preventDefault();
+    
+    if (!emailFormData.newEmail || !emailFormData.password) {
+      toast.error('Please fill in all fields');
+      return;
+    }
+
+    setUpdatingEmail(true);
+    
+    try {
+      const updatedUser = await authAPI.updateEmail(emailFormData.newEmail, emailFormData.password);
+      
+      // Update localStorage with new user data
+      const currentUser = JSON.parse(localStorage.getItem('user'));
+      currentUser.email = updatedUser.email;
+      localStorage.setItem('user', JSON.stringify(currentUser));
+      
+      toast.success('Email updated successfully! Please log in again with your new email.');
+      
+      // Reset form
+      setEmailFormData({ newEmail: '', password: '' });
+      setIsChangingEmail(false);
+      
+      // Reload page after 2 seconds
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+      
+    } catch (error) {
+      if (error.response?.status === 401) {
+        toast.error('Incorrect password');
+      } else if (error.response?.status === 400) {
+        toast.error('Email already in use');
+      } else {
+        toast.error('Failed to update email. Please try again.');
+      }
+      console.error('Email update error:', error);
+    } finally {
+      setUpdatingEmail(false);
     }
   };
 
