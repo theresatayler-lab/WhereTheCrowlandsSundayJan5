@@ -738,8 +738,15 @@ def main():
     tester.test_get_rituals()
     tester.test_get_timeline()
     
+    # Test Enhanced Spell Generation System (PRIORITY TESTS)
+    print("\n✨ Testing Enhanced Spell Generation System...")
+    tester.test_spell_generation_kathleen_protection()
+    tester.test_spell_generation_catherine_creativity()
+    tester.test_spell_generation_neutral()
+    tester.test_spell_generation_with_image()
+    
     # Test AI features with archetype personas
-    print("\n🤖 Testing AI Features...")
+    print("\n🤖 Testing AI Chat Features...")
     tester.test_ai_chat_neutral()
     tester.test_ai_chat_shiggy()
     tester.test_ai_chat_kathleen()
