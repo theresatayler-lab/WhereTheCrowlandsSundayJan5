@@ -773,6 +773,19 @@ async def remove_favorite(request: FavoriteRequest, user = Depends(get_current_u
 @api_router.post('/grimoire/save', response_model=SavedSpellResponse)
 async def save_spell_to_grimoire(request: SaveSpellRequest, user = Depends(get_current_user)):
     """Save a generated spell to the user's personal grimoire"""
+    
+    # Check subscription - only paid users can save
+    subscription_tier = user.get('subscription_tier', 'free')
+    if subscription_tier == 'free':
+        raise HTTPException(
+            status_code=403,
+            detail={
+                'error': 'feature_locked',
+                'message': 'Upgrade to Pro to save spells to your grimoire! Only $19/year for unlimited saves.',
+                'feature': 'save_spell'
+            }
+        )
+    
     spell_id = str(uuid.uuid4())
     
     # Extract title from spell data for easy display
@@ -791,6 +804,12 @@ async def save_spell_to_grimoire(request: SaveSpellRequest, user = Depends(get_c
     }
     
     await db.user_spells.insert_one(saved_spell)
+    
+    # Increment saved spell counter
+    await db.users.update_one(
+        {'id': user['id']},
+        {'$inc': {'total_spells_saved': 1}}
+    )
     
     return SavedSpellResponse(**saved_spell)
 
