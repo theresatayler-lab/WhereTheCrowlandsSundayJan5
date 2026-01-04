@@ -182,9 +182,6 @@ export const GrimoirePage = ({ spell, archetype, imageBase64, onNewSpell }) => {
       } else {
         toast.error('Failed to save spell. Please try again.');
       }
-      } else {
-        toast.error('Failed to save spell. Please try again.');
-      }
     } finally {
       setIsSaving(false);
     }
