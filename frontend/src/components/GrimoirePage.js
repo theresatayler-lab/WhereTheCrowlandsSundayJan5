@@ -128,6 +128,37 @@ export const GrimoirePage = ({ spell, archetype, imageBase64, onNewSpell }) => {
     }
   };
 
+  const saveToGrimoire = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      toast.error('Please log in to save spells to your grimoire');
+      return;
+    }
+
+    setIsSaving(true);
+    
+    try {
+      await grimoireAPI.saveSpell(
+        spell,
+        archetype?.id,
+        archetype?.name,
+        archetype?.title,
+        imageBase64
+      );
+      toast.success('Spell saved to your grimoire!');
+    } catch (error) {
+      console.error('Save spell error:', error);
+      if (error.response?.status === 401) {
+        toast.error('Please log in to save spells');
+      } else {
+        toast.error('Failed to save spell. Please try again.');
+      }
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+
   if (spell.parse_error) {
     return (
       <div className="bg-card/50 border border-border rounded-sm p-6">
