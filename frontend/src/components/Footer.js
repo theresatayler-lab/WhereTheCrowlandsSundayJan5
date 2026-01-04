@@ -9,7 +9,7 @@ export const Footer = () => {
           {/* Logo and Description */}
           <div className="flex flex-col items-center md:items-start">
             <img 
-              src="https://customer-assets.emergentagent.com/job_mystic-circle-2/artifacts/li34ks3x_Where%20the%20Crowlands%20Logos.png"
+              src="https://customer-assets.emergentagent.com/job_diywizardry/artifacts/734861j5_generated-image-2026-01-04%20%286%29.png"
               alt="Where The Crowlands Badge"
               className="h-48 w-48 mb-6"
             />
