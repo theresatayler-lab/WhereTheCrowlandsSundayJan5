@@ -224,9 +224,15 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Enhanced Spell Generation API - Image Generation"
+    - "Auth Page - Login/Registration Toggle"
+    - "Spell Limit Banner for Free Users"
+    - "Save to Grimoire - Pro Only Restriction"
+    - "Save as PDF - Pro Only Restriction"
   stuck_tasks:
-    - "Enhanced Spell Generation API - Image Generation"
+    - "Auth Page - Login/Registration Toggle"
+    - "Spell Limit Banner for Free Users"
+    - "Save to Grimoire - Pro Only Restriction"
+    - "Save as PDF - Pro Only Restriction"
   test_all: false
   test_priority: "high_first"
 
