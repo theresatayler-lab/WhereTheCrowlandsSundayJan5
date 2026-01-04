@@ -12,7 +12,7 @@ class SpiritualAppAPITester:
         self.failed_tests = []
         self.user_id = None
 
-    def run_test(self, name, method, endpoint, expected_status, data=None, headers=None):
+    def run_test(self, name, method, endpoint, expected_status, data=None, headers=None, timeout=30):
         """Run a single API test"""
         url = f"{self.base_url}/api/{endpoint}"
         test_headers = {'Content-Type': 'application/json'}
@@ -29,11 +29,11 @@ class SpiritualAppAPITester:
         
         try:
             if method == 'GET':
-                response = requests.get(url, headers=test_headers, timeout=30)
+                response = requests.get(url, headers=test_headers, timeout=timeout)
             elif method == 'POST':
-                response = requests.post(url, json=data, headers=test_headers, timeout=30)
+                response = requests.post(url, json=data, headers=test_headers, timeout=timeout)
             elif method == 'DELETE':
-                response = requests.delete(url, json=data, headers=test_headers, timeout=30)
+                response = requests.delete(url, json=data, headers=test_headers, timeout=timeout)
 
             success = response.status_code == expected_status
             if success:
