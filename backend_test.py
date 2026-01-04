@@ -457,6 +457,10 @@ def main():
     if not tester.test_auth_register():
         print("❌ Registration failed, continuing with other tests...")
     
+    # Test archetype system (priority tests from review request)
+    print("\n🎭 Testing Archetype System...")
+    tester.test_get_archetypes()
+    
     # Test all content endpoints (these should work without auth)
     print("\n🌙 Testing Content APIs...")
     tester.test_get_deities()
@@ -465,9 +469,12 @@ def main():
     tester.test_get_rituals()
     tester.test_get_timeline()
     
-    # Test AI features
+    # Test AI features with archetype personas
     print("\n🤖 Testing AI Features...")
-    tester.test_ai_chat()
+    tester.test_ai_chat_neutral()
+    tester.test_ai_chat_shiggy()
+    tester.test_ai_chat_kathleen()
+    tester.test_ai_chat()  # Keep original test for backward compatibility
     tester.test_ai_image_generation()
     
     # Test favorites (requires auth)
