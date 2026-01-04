@@ -215,7 +215,15 @@ export const ARCHETYPES = [
       'Psychological ritual frameworks',
       'Contemporary bird mythology'
     ],
-    placeholderImage: 'theresa'
+    image: 'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/daujlur9_Theresa6.png',
+    galleryImages: [
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/7dqhsrv9_TheresaTayler7.png',
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/ti6j94bg_TheresaTayler8.png',
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/k16w6kaw_TheresaTayler9.png',
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/3ianlho1_Theresa1.png',
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/5uwgdmmv_Theresa4.png',
+      'https://customer-assets.emergentagent.com/job_diywizardry/artifacts/daujlur9_Theresa6.png'
+    ]
   }
 ];
 
