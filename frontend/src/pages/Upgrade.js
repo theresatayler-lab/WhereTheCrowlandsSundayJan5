@@ -1,9 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, Sparkles, BookOpen, Download, X } from 'lucide-react';
+import { Check, Sparkles, BookOpen, Download, X, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { toast } from 'sonner';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export const Upgrade = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handleUpgrade = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      toast.error('Please log in to upgrade');
+      return;
+    }
+
+    setLoading(true);
+    
+    try {
+      const originUrl = window.location.origin;
+      const response = await axios.post(
+        `${BACKEND_URL}/api/stripe/create-checkout`,
+        { origin_url: originUrl },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+
+      // Redirect to Stripe checkout
+      window.location.href = response.data.checkout_url;
+    } catch (error) {
+      console.error('Checkout error:', error);
+      toast.error('Failed to start checkout. Please try again.');
+      setLoading(false);
+    }
+  };
   return (
     <div className="min-h-screen py-24 px-6">
       <div className="max-w-5xl mx-auto">
