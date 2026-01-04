@@ -157,6 +157,36 @@ def create_token(user_id: str) -> str:
     }
     return jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
 
+async def check_spell_generation_limit(user: dict) -> dict:
+    """Check if user can generate spell and return status"""
+    subscription_tier = user.get('subscription_tier', 'free')
+    
+    if subscription_tier == 'paid':
+        return {'can_generate': True, 'remaining': -1, 'limit': -1}
+    
+    # Free tier - limit to 3 spells
+    count = user.get('spell_generation_count', 0)
+    limit = 3
+    
+    return {
+        'can_generate': count < limit,
+        'remaining': max(0, limit - count),
+        'limit': limit,
+        'current_count': count
+    }
+
+async def increment_spell_count(user_id: str):
+    """Increment user's spell generation count"""
+    await db.users.update_one(
+        {'id': user_id},
+        {
+            '$inc': {
+                'spell_generation_count': 1,
+                'total_spells_generated': 1
+            }
+        }
+    )
+
 async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)):
     try:
         token = credentials.credentials
