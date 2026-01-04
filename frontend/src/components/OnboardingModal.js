@@ -216,16 +216,22 @@ const ArchetypeCard = ({ archetype, isSelected, onSelect }) => {
       }`}
     >
       {/* Image or Placeholder */}
-      <div className="w-full h-40 bg-gradient-to-b from-muted/20 to-muted/40 flex items-center justify-center rounded-t-sm border-b border-border overflow-hidden relative">
+      <div 
+        className="w-full h-40 flex items-center justify-center rounded-t-sm border-b border-border overflow-hidden relative"
+        style={{ backgroundColor: '#D8CBB3' }}
+      >
         {archetype.image ? (
           <>
             <img 
               src={archetype.image} 
               alt={archetype.shortName}
               className="w-full h-full object-cover object-center"
-              style={{ objectPosition: '50% 20%' }}
+              style={{ 
+                objectPosition: '50% 20%',
+                mixBlendMode: 'multiply'
+              }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent pointer-events-none" />
             <span className="absolute bottom-2 right-2 text-2xl drop-shadow-lg">{archetype.birdEmoji}</span>
           </>
         ) : (
