@@ -272,6 +272,39 @@ async def login(credentials: UserLogin):
     )
     return AuthResponse(token=token, user=user_response)
 
+# User profile update endpoints
+class UpdateEmailRequest(BaseModel):
+    new_email: EmailStr
+    password: str  # Require password for security
+
+@api_router.post('/auth/update-email', response_model=UserResponse)
+async def update_email(request: UpdateEmailRequest, user = Depends(get_current_user)):
+    """Update user's email address"""
+    
+    # Verify password
+    if not verify_password(request.password, user['password_hash']):
+        raise HTTPException(status_code=401, detail='Incorrect password')
+    
+    # Check if new email is already taken
+    existing = await db.users.find_one({'email': request.new_email}, {'_id': 0})
+    if existing and existing['id'] != user['id']:
+        raise HTTPException(status_code=400, detail='Email already in use')
+    
+    # Update email
+    await db.users.update_one(
+        {'id': user['id']},
+        {'$set': {'email': request.new_email}}
+    )
+    
+    return UserResponse(
+        id=user['id'],
+        email=request.new_email,
+        name=user['name'],
+        subscription_tier=user.get('subscription_tier', 'free'),
+        subscription_status=user.get('subscription_status', 'active'),
+        spell_generation_count=user.get('spell_generation_count', 0)
+    )
+
 # Deities endpoints
 @api_router.get('/deities', response_model=List[Deity])
 async def get_deities():
