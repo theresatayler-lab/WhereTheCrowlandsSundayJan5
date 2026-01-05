@@ -54,6 +54,7 @@ module.exports = {
         'italiana': ['Italiana', 'serif'],
         'cinzel': ['Cinzel Decorative', 'serif'],
         'crimson': ['Crimson Text', 'serif'],
+        'playfair': ['Playfair Display', 'serif'],
         'montserrat': ['Montserrat', 'sans-serif'],
       },
       borderRadius: {
