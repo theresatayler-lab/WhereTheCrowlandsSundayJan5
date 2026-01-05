@@ -130,7 +130,7 @@ export const SpellRequest = ({ selectedArchetype: propArchetype }) => {
   }
 
   return (
-    <div className="min-h-screen py-24 px-6">
+    <div className="min-h-screen py-16 sm:py-20 md:py-24 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         {/* Spell Limit Banner for Free Users */}
         {subscriptionStatus && subscriptionStatus.subscription_tier === 'free' && (
@@ -143,11 +143,11 @@ export const SpellRequest = ({ selectedArchetype: propArchetype }) => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-8"
+          className="text-center mb-6 sm:mb-8"
         >
-          <Sparkles className="w-16 h-16 text-primary mx-auto mb-4" />
-          <h1 className="font-italiana text-4xl md:text-6xl text-primary mb-4">Build Your Ritual</h1>
-          <p className="font-montserrat text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+          <Sparkles className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-primary mx-auto mb-3 sm:mb-4" />
+          <h1 className="font-italiana text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary mb-3 sm:mb-4">Build Your Ritual</h1>
+          <p className="font-montserrat text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
             {currentGuide 
               ? `Guided by ${currentGuide.shortName}, ${currentGuide.title.toLowerCase()}`
               : 'Describe your need. Get a practical formula based on tested patterns. Adapt it as you go.'}
