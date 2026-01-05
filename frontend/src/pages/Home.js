@@ -69,8 +69,8 @@ export const Home = () => {
               
               <p className="text-accent italic">
                 While rooted primarily in British history and mysticism, we plan to expand, honouring all cultures—every 
-                tradition has drawn from what lies beneath the veil. Now, as uncertainty and shifting powers challenge 
-                our sense, inherent beliefs about what constitutes light and dark, it's time to bring a little magic back ;)
+                tradition has drawn from what lies beneath the veil. As uncertainty and shifting world powers challenge 
+                our sense of and inherent belief system about what constitutes light and dark, it's time to bring a little magic back ;)
               </p>
             </div>
 
