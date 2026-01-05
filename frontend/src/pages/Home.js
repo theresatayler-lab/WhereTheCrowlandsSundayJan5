@@ -164,24 +164,24 @@ export const Home = () => {
       </div>
 
       {/* About Section */}
-      <div className="relative bg-card/30 py-24 overflow-hidden">
+      <div className="relative bg-card/30 py-12 sm:py-16 md:py-24 overflow-hidden">
         <div 
           className="absolute inset-0 opacity-15 bg-engraving-coral bg-cover bg-center"
           style={{ mixBlendMode: 'multiply' }}
         />
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-italiana text-3xl md:text-5xl text-foreground mb-8">Your Power Doesn't Need Permission</h2>
-          <p className="font-montserrat text-base md:text-lg text-foreground/80 leading-relaxed mb-6">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="font-italiana text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-6 sm:mb-8">Your Power Doesn't Need Permission</h2>
+          <p className="font-montserrat text-sm sm:text-base md:text-lg text-foreground/80 leading-relaxed mb-4 sm:mb-6">
             Magic isn't mystical—it's intentional effort combined with patterns, formulas, and sacred geometry. 
             Like alchemy before it became chemistry, these are frameworks for focusing will and creating change.
             You don't have to believe in magic for it to work. You just have to practice it.
           </p>
-          <p className="font-montserrat text-base md:text-lg text-foreground/80 leading-relaxed mb-6">
+          <p className="font-montserrat text-sm sm:text-base md:text-lg text-foreground/80 leading-relaxed mb-4 sm:mb-6">
             This toolkit draws from documented practices (1910-1945) not because they're "ancient secrets," but because 
             they're tested formulas. Gardner, Fortune, and Crowley weren't mystics—they were experimenters synthesizing 
             patterns that produced results. Now you can do the same, without gatekeepers or expensive services.
           </p>
-          <p className="font-montserrat text-sm text-accent italic">
+          <p className="font-montserrat text-xs sm:text-sm text-accent italic">
             You don't need to buy empowerment. You already have your intuition, your will, and your ability to create ritual.
             This archive just shows you the formulas others have used—adapt them, break them, build your own.
           </p>
