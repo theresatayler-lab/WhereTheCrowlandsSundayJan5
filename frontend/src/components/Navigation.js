@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Moon, BookOpen, Users, MapPin, Scroll, Clock, Bot, Sparkles, User, LogOut, Menu, X } from 'lucide-react';
+import { Moon, BookOpen, Users, MapPin, Scroll, Clock, Bot, Sparkles, User, LogOut, Menu, X, HelpCircle, Shield, Feather } from 'lucide-react';
 
 export const Navigation = ({ user, onLogout }) => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
-  const links = [
+  const primaryLinks = [
     { to: '/', label: 'Home', icon: Moon },
     { to: '/spell-request', label: 'Request Spell', icon: Sparkles },
     { to: '/guides', label: 'Guides', icon: Users },
@@ -18,6 +18,14 @@ export const Navigation = ({ user, onLogout }) => {
     { to: '/timeline', label: 'Timeline', icon: Clock },
     { to: '/ai-chat', label: 'Research', icon: Bot },
   ];
+  
+  const secondaryLinks = [
+    { to: '/about', label: 'About', icon: Feather },
+    { to: '/faq', label: 'FAQ', icon: HelpCircle },
+    { to: '/privacy', label: 'Privacy', icon: Shield },
+  ];
+  
+  const links = [...primaryLinks, ...secondaryLinks];
   
   const handleLinkClick = () => {
     setMobileMenuOpen(false);
