@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Moon, BookOpen, Users, MapPin, Scroll, Clock, Bot, Sparkles, User, LogOut } from 'lucide-react';
+import { Moon, BookOpen, Users, MapPin, Scroll, Clock, Bot, Sparkles, User, LogOut, Menu, X } from 'lucide-react';
 
 export const Navigation = ({ user, onLogout }) => {
   const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const links = [
     { to: '/', label: 'Home', icon: Moon },
@@ -18,20 +19,25 @@ export const Navigation = ({ user, onLogout }) => {
     { to: '/ai-chat', label: 'Research', icon: Bot },
   ];
   
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false);
+  };
+  
   return (
     <nav className="border-b border-border bg-background/95 backdrop-blur-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center space-x-3" data-testid="nav-logo">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          <Link to="/" className="flex items-center space-x-2" data-testid="nav-logo" onClick={handleLinkClick}>
             <img 
               src="https://customer-assets.emergentagent.com/job_diywizardry/artifacts/9hb654f4_image.png" 
               alt="Where The Crowlands Logo"
-              className="h-16 w-auto"
+              className="h-12 md:h-16 w-auto"
               style={{ mixBlendMode: 'lighten' }}
             />
           </Link>
           
-          <div className="flex items-center space-x-1">
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-1">
             {links.map((link) => {
               // Skip auth-required links if user is not logged in
               if (link.requiresAuth && !user) return null;
