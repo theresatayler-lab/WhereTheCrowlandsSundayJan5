@@ -51,15 +51,15 @@ export const Home = () => {
               <Link
                 to="/spell-request"
                 data-testid="hero-spell-request"
-                className="px-8 py-3 bg-primary text-primary-foreground rounded-sm font-montserrat tracking-widest uppercase text-sm hover:bg-primary/90 transition-all duration-300 border border-primary/50 glow-effect flex items-center gap-2"
+                className="px-6 sm:px-8 py-3 bg-primary text-primary-foreground rounded-sm font-montserrat tracking-widest uppercase text-xs sm:text-sm hover:bg-primary/90 transition-all duration-300 border border-primary/50 glow-effect flex items-center gap-2 min-h-[48px]"
               >
-                <Sparkles className="w-5 h-5" />
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>Request a Spell</span>
               </Link>
               <Link
                 to="/rituals"
                 data-testid="hero-create-ritual"
-                className="px-8 py-3 bg-transparent text-primary border border-primary/30 rounded-sm font-montserrat tracking-widest uppercase text-sm hover:bg-primary/10 transition-all duration-300"
+                className="px-6 sm:px-8 py-3 bg-transparent text-primary border border-primary/30 rounded-sm font-montserrat tracking-widest uppercase text-xs sm:text-sm hover:bg-primary/10 transition-all duration-300 min-h-[48px]"
               >
                 Create Ritual
               </Link>
