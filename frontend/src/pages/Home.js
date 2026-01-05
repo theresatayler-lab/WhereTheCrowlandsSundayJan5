@@ -38,10 +38,10 @@ export const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="font-italiana text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-primary mb-4 sm:mb-6 tracking-tight leading-none">
+            <h1 className="font-italiana text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 tracking-tight leading-none" style={{ color: '#1D2847' }}>
               Where The Crowlands
             </h1>
-            <p className="font-cinzel text-lg sm:text-xl md:text-2xl text-accent mb-3 sm:mb-4">
+            <p className="font-cinzel text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4" style={{ color: '#1D2847' }}>
               Got a problem? We've got a ritual for that.
             </p>
             <p className="font-montserrat text-sm sm:text-base md:text-lg text-foreground/80 leading-relaxed max-w-2xl mx-auto mb-6 sm:mb-8 px-2">
