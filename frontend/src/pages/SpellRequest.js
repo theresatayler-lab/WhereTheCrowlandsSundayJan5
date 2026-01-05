@@ -396,16 +396,6 @@ export const SpellRequest = ({ selectedArchetype: propArchetype }) => {
               
               {loading ? (
                 <div className="flex flex-col items-center justify-center min-h-[400px] sm:h-[500px] text-center relative">
-                  {/* Scroll Indicator - Only show on mobile */}
-                  <div className="lg:hidden absolute top-2 left-1/2 -translate-x-1/2 animate-bounce">
-                    <div className="flex flex-col items-center gap-1">
-                      <span className="font-montserrat text-xs text-primary/60">Scroll to watch</span>
-                      <svg className="w-4 h-4 text-primary/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                      </svg>
-                    </div>
-                  </div>
-                  
                   {/* Show guide video if available */}
                   {currentGuide && currentGuide.video ? (
                     <div className="w-full max-w-md mb-6">
