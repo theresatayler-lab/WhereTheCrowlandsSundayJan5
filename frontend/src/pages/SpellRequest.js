@@ -62,6 +62,13 @@ export const SpellRequest = ({ selectedArchetype: propArchetype }) => {
     setLoading(true);
     setSpellResult(null);
     
+    // Auto-scroll to video section after a brief delay
+    setTimeout(() => {
+      if (videoSectionRef.current) {
+        videoSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 300);
+    
     try {
       const response = await aiAPI.generateSpell(problem, activeArchetype, generateImage);
       setSpellResult(response);
