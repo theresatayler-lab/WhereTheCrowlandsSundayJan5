@@ -29,3 +29,101 @@
   mix-blend-mode: multiply;
   opacity: 0.95;
 }
+
+/* Art Deco & Victorian Decorative Elements */
+.art-deco-border {
+  position: relative;
+}
+
+.art-deco-border::before,
+.art-deco-border::after {
+  content: '';
+  position: absolute;
+  background: linear-gradient(90deg, transparent, #1D2847, transparent);
+  height: 1px;
+}
+
+.art-deco-border::before {
+  top: 0;
+  left: 10%;
+  right: 10%;
+}
+
+.art-deco-border::after {
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+}
+
+/* Ornate corner accents */
+.victorian-corners {
+  position: relative;
+}
+
+.victorian-corners::before,
+.victorian-corners::after {
+  content: '✦';
+  position: absolute;
+  color: #1D2847;
+  opacity: 0.3;
+  font-size: 1.5rem;
+}
+
+.victorian-corners::before {
+  top: -0.5rem;
+  left: -0.5rem;
+}
+
+.victorian-corners::after {
+  bottom: -0.5rem;
+  right: -0.5rem;
+}
+
+/* Mystical divider */
+.mystical-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.mystical-divider::before,
+.mystical-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #1D2847;
+  opacity: 0.3;
+}
+
+.mystical-divider::before {
+  margin-right: 1rem;
+}
+
+.mystical-divider::after {
+  margin-left: 1rem;
+}
+
+/* Moon phase decorative element */
+.moon-phases {
+  background: radial-gradient(circle, rgba(29, 40, 71, 0.1) 0%, transparent 70%);
+}
+
+/* Tarot card style frame */
+.tarot-frame {
+  border: 2px solid #1D2847;
+  border-radius: 0.25rem;
+  box-shadow: 
+    0 0 0 1px #D8CBB3,
+    0 0 0 3px #1D2847,
+    0 4px 12px rgba(29, 40, 71, 0.3);
+}
+
+/* Ornate text with drop cap */
+.drop-cap::first-letter {
+  font-size: 3.5rem;
+  font-family: 'Cinzel Decorative', serif;
+  color: #1D2847;
+  float: left;
+  line-height: 0.8;
+  margin: 0.1rem 0.5rem 0 0;
+}
