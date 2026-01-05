@@ -53,16 +53,26 @@ export const Footer = () => {
 
           {/* AI Tools */}
           <div>
-            <h4 className="font-cinzel text-lg text-secondary mb-4">AI Tools</h4>
+            <h4 className="font-cinzel text-lg text-secondary mb-4">Resources</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/ai-chat" className="font-crimson text-sm text-foreground hover:text-primary transition-colors">
-                  AI Research Assistant
+                <Link to="/about" className="font-crimson text-sm text-foreground hover:text-primary transition-colors">
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link to="/ai-image" className="font-crimson text-sm text-foreground hover:text-primary transition-colors">
-                  AI Image Generator
+                <Link to="/faq" className="font-crimson text-sm text-foreground hover:text-primary transition-colors">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy" className="font-crimson text-sm text-foreground hover:text-primary transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/ai-chat" className="font-crimson text-sm text-foreground hover:text-primary transition-colors">
+                  AI Research
                 </Link>
               </li>
             </ul>
