@@ -48,19 +48,28 @@ export const Home = () => {
               You don't need an Etsy witch or tarot reader to access your power. Build your own practice with formulas, 
               sacred geometry, and intentional effort. Magic is science—patterns and shapes we put into practice.
             </p>
+            
+            {/* Art Deco accent line */}
+            <div className="flex items-center justify-center gap-3 mb-6 sm:mb-8">
+              <div className="h-px w-12 sm:w-20 bg-gradient-to-r from-transparent to-deep-blue/40"></div>
+              <span className="text-deep-blue/60 text-sm">✦</span>
+              <div className="h-px w-12 sm:w-20 bg-gradient-to-l from-transparent to-deep-blue/40"></div>
+            </div>
+            
             <div className="flex gap-3 sm:gap-4 justify-center flex-wrap px-2">
               <Link
                 to="/spell-request"
                 data-testid="hero-spell-request"
-                className="px-6 sm:px-8 py-3 bg-primary text-primary-foreground rounded-sm font-montserrat tracking-widest uppercase text-xs sm:text-sm hover:bg-primary/90 transition-all duration-300 border border-primary/50 glow-effect flex items-center gap-2 min-h-[48px]"
+                className="relative px-6 sm:px-8 py-3 bg-primary text-primary-foreground rounded-sm font-montserrat tracking-widest uppercase text-xs sm:text-sm hover:bg-primary/90 transition-all duration-300 border-2 border-deep-blue/20 glow-effect flex items-center gap-2 min-h-[48px] overflow-hidden group"
               >
-                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span>Request a Spell</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-deep-blue/0 via-deep-blue/10 to-deep-blue/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 relative z-10" />
+                <span className="relative z-10">Request a Spell</span>
               </Link>
               <Link
                 to="/rituals"
                 data-testid="hero-create-ritual"
-                className="px-6 sm:px-8 py-3 bg-transparent text-primary border border-primary/30 rounded-sm font-montserrat tracking-widest uppercase text-xs sm:text-sm hover:bg-primary/10 transition-all duration-300 min-h-[48px]"
+                className="px-6 sm:px-8 py-3 bg-transparent text-deep-blue border-2 border-deep-blue/40 rounded-sm font-montserrat tracking-widest uppercase text-xs sm:text-sm hover:bg-deep-blue/10 transition-all duration-300 min-h-[48px]"
               >
                 Create Ritual
               </Link>
