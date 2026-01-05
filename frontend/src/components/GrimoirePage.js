@@ -135,13 +135,20 @@ export const GrimoirePage = ({ spell, archetype, imageBase64, onNewSpell }) => {
   };
 
   const downloadAsPdf = async () => {
-    if (!grimoireRef.current) return;
+    if (!grimoireRef.current) {
+      console.error('GrimoireRef is null');
+      toast.error('Unable to generate PDF - page reference missing');
+      return;
+    }
     
     setIsGeneratingPdf(true);
     toast.info('Generating your grimoire page...');
     
     try {
+      console.log('Starting PDF generation...');
       const element = grimoireRef.current;
+      console.log('Element found:', element);
+      
       const opt = {
         margin: [10, 10, 10, 10],
         filename: `${spell.title?.replace(/[^a-z0-9]/gi, '_') || 'spell'}_grimoire.pdf`,
@@ -150,7 +157,8 @@ export const GrimoirePage = ({ spell, archetype, imageBase64, onNewSpell }) => {
           scale: 2,
           useCORS: true,
           allowTaint: true,
-          backgroundColor: '#D8CBB3'
+          backgroundColor: '#D8CBB3',
+          logging: true
         },
         jsPDF: { 
           unit: 'mm', 
@@ -160,11 +168,14 @@ export const GrimoirePage = ({ spell, archetype, imageBase64, onNewSpell }) => {
         pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
       };
       
+      console.log('Calling html2pdf with options:', opt);
       await html2pdf().set(opt).from(element).save();
+      console.log('PDF generation completed');
       toast.success('Grimoire page downloaded!');
     } catch (error) {
       console.error('PDF generation error:', error);
-      toast.error('Failed to generate PDF. Please try again.');
+      console.error('Error stack:', error.stack);
+      toast.error(`Failed to generate PDF: ${error.message}`);
     } finally {
       setIsGeneratingPdf(false);
     }
