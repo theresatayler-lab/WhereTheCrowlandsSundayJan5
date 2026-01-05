@@ -84,14 +84,24 @@ export const Home = () => {
 
       {/* Featured Sections */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="font-italiana text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center text-foreground mb-8 sm:mb-12 md:mb-16 tracking-wide"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          Explore the Archive
-        </motion.h2>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-px w-12 sm:w-20 bg-gradient-to-r from-transparent to-deep-blue/40"></div>
+            <span className="text-deep-blue/60 text-lg">✦</span>
+            <div className="h-px w-12 sm:w-20 bg-gradient-to-l from-transparent to-deep-blue/40"></div>
+          </div>
+          <h2 className="font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-deep-blue mb-3 tracking-wide font-bold">
+            Explore the Archive
+          </h2>
+          <p className="font-crimson text-sm sm:text-base text-deep-blue/70 italic">
+            Four centuries of tested formulas at your fingertips
+          </p>
+        </motion.div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           <Link to="/spell-request" data-testid="section-spell-request">
