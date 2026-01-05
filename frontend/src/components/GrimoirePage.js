@@ -553,16 +553,11 @@ export const GrimoirePage = ({ spell, archetype, imageBase64, onNewSpell }) => {
           </button>
           <button
             onClick={downloadAsPdf}
-            disabled={isGeneratingPdf || subscriptionTier === 'free'}
-            className={`px-4 py-2 rounded-sm font-montserrat tracking-widest uppercase text-xs transition-all flex items-center gap-2 ${
-              subscriptionTier === 'free'
-                ? 'bg-muted text-muted-foreground cursor-not-allowed opacity-70 border border-border'
-                : 'bg-transparent text-primary border border-primary/30 hover:bg-primary/10 disabled:opacity-50'
-            }`}
-            title={subscriptionTier === 'free' ? 'Upgrade to Pro to download PDFs' : ''}
+            disabled={isGeneratingPdf}
+            className="px-4 py-2 bg-transparent text-primary border border-primary/30 hover:bg-primary/10 rounded-sm font-montserrat tracking-widest uppercase text-xs transition-all flex items-center gap-2 disabled:opacity-50"
           >
             <Download className={`w-4 h-4 ${isGeneratingPdf ? 'animate-bounce' : ''}`} />
-            {isGeneratingPdf ? 'Generating...' : subscriptionTier === 'free' ? 'PDF (Pro Only)' : 'Save as PDF'}
+            {isGeneratingPdf ? 'Generating...' : 'Save as PDF'}
           </button>
           <button
             onClick={onNewSpell}
