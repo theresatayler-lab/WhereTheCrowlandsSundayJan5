@@ -27,11 +27,12 @@ export const Navigation = ({ user, onLogout }) => {
     <nav className="border-b border-border bg-background/95 backdrop-blur-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
           <Link to="/" className="flex items-center space-x-2" data-testid="nav-logo" onClick={handleLinkClick}>
             <img 
               src="https://customer-assets.emergentagent.com/job_diywizardry/artifacts/9hb654f4_image.png" 
               alt="Where The Crowlands Logo"
-              className="h-12 md:h-16 w-auto"
+              className="h-10 sm:h-12 md:h-16 w-auto"
               style={{ mixBlendMode: 'lighten' }}
             />
           </Link>
@@ -39,7 +40,6 @@ export const Navigation = ({ user, onLogout }) => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             {links.map((link) => {
-              // Skip auth-required links if user is not logged in
               if (link.requiresAuth && !user) return null;
               
               const Icon = link.icon;
@@ -89,7 +89,77 @@ export const Navigation = ({ user, onLogout }) => {
               </Link>
             )}
           </div>
+
+          {/* Mobile Menu Button */}
+          <div className="flex items-center gap-3 lg:hidden">
+            {user && (
+              <Link
+                to="/profile"
+                onClick={handleLinkClick}
+                className="p-2 rounded-sm text-muted-foreground hover:text-primary transition-all"
+              >
+                <User className="w-5 h-5" />
+              </Link>
+            )}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-sm text-muted-foreground hover:text-primary transition-all"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden border-t border-border py-4">
+            <div className="space-y-1">
+              {links.map((link) => {
+                if (link.requiresAuth && !user) return null;
+                
+                const Icon = link.icon;
+                const isActive = location.pathname === link.to;
+                return (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={handleLinkClick}
+                    className={`flex items-center space-x-3 px-4 py-3 rounded-sm font-montserrat text-sm transition-all ${
+                      isActive
+                        ? 'bg-primary/10 text-primary border-l-4 border-primary'
+                        : 'text-muted-foreground hover:bg-primary/5'
+                    }`}
+                  >
+                    <Icon className="w-5 h-5" />
+                    <span>{link.label}</span>
+                  </Link>
+                );
+              })}
+              
+              {user ? (
+                <button
+                  onClick={() => {
+                    onLogout();
+                    handleLinkClick();
+                  }}
+                  className="w-full flex items-center space-x-3 px-4 py-3 rounded-sm font-montserrat text-sm text-destructive hover:bg-destructive/10 transition-all"
+                >
+                  <LogOut className="w-5 h-5" />
+                  <span>Logout</span>
+                </button>
+              ) : (
+                <Link
+                  to="/auth"
+                  onClick={handleLinkClick}
+                  className="flex items-center justify-center px-4 py-3 bg-primary text-primary-foreground rounded-sm font-montserrat text-sm tracking-widest uppercase hover:bg-primary/90 transition-all"
+                >
+                  Login
+                </Link>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
