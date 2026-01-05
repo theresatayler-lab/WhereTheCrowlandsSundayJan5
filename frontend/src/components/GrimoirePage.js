@@ -83,14 +83,33 @@ export const GrimoirePage = ({ spell, archetype, imageBase64, onNewSpell }) => {
   React.useEffect(() => {
     const checkSubscription = async () => {
       const token = localStorage.getItem('token');
+      const storedUser = localStorage.getItem('user');
+      
+      // First try to get from stored user data
+      if (storedUser) {
+        try {
+          const userData = JSON.parse(storedUser);
+          if (userData.subscription_tier) {
+            setSubscriptionTier(userData.subscription_tier);
+            console.log('Subscription tier from localStorage:', userData.subscription_tier);
+          }
+        } catch (e) {
+          console.error('Failed to parse user data:', e);
+        }
+      }
+      
+      // Then fetch latest from API to ensure it's current
       if (token) {
         try {
           const status = await subscriptionAPI.getStatus();
           setSubscriptionTier(status.subscription_tier);
-          console.log('Subscription tier loaded:', status.subscription_tier);
+          console.log('Subscription tier from API:', status.subscription_tier);
         } catch (error) {
           console.error('Failed to check subscription:', error);
-          setSubscriptionTier('free'); // Default to free on error
+          // Keep the tier from localStorage if API fails
+          if (!storedUser) {
+            setSubscriptionTier('free');
+          }
         }
       } else {
         setSubscriptionTier('free'); // Anonymous users are treated as free
