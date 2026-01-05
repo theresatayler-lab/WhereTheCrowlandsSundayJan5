@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Moon, BookOpen, Users, MapPin, Sparkles } from 'lucide-react';
 import { GlassCard } from '../components/GlassCard';
 import { DecorativeDivider } from '../components/DecorativeDivider';
+import { WaitlistForm } from '../components/WaitlistForm';
 
 export const Home = () => {
   return (
